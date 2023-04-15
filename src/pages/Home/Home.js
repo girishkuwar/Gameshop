@@ -1,9 +1,9 @@
 import React from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
-import gamingBg1 from '../img/gaming1.webp'
-import gamingBg2 from '../img/gaming2.jpg'
-import gamingBg3 from '../img/gaming3.jpg'
+import gamingBg1 from '../../img/gaming1.webp'
+import gamingBg2 from '../../img/gaming2.jpg'
+import gamingBg3 from '../../img/gaming3.jpg'
 
 const Home = () => {
   return (

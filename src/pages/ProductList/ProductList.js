@@ -1,5 +1,5 @@
 import React from 'react'
-import gamelist from '../data/GamesList'
+import gamelist from '../../data/GamesList'
 import './productlist.css'
 import { Link } from 'react-router-dom'
 

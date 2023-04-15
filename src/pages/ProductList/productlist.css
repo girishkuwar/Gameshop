@@ -4,23 +4,36 @@
     gap: 25px;
     padding: 10px 80px;
 }
+
 .game-list .card {
     background-color: rgb(33, 33, 33);
     border-radius: 5px;
     padding: 5px 10px;
     text-align: center;
 }
+
 .game-list .card:hover {
     background-color: rgb(57, 57, 57);
 }
+
 .card h1 {
     font-size: 1rem;
     color: aliceblue;
     margin: 10px;
 }
+
 .card p {
     color: azure;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    /* max-width: 100px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* height: 56px; */
+
 }
+
 .card img {
     width: 85%;
 }

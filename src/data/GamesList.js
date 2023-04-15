@@ -4,6 +4,8 @@ import game3 from './GameCover/residentevi4.jpg'
 import game4 from './GameCover/godofwar.jpg'
 import game5 from './GameCover/spiderman4.jpg'
 import game6 from './GameCover/far_cry_4.jpg'
+import game7 from './GameCover/blacklist.png'
+
 
 const gamelist = [
     {
@@ -14,7 +16,7 @@ const gamelist = [
     },
     {
         id:2,
-        name:"CREW",
+        name:"THE CREW",
         img: game2,
         desc:"sdfjhgdsjfhdskjhfkdsjhfds"
     },
@@ -41,6 +43,12 @@ const gamelist = [
         name:"FAR CRY 4",
         img: game6,
         desc: "Most realistic Graphics "
+    },
+    {
+        id:7,
+        name:"splinter cell blacklist",
+        img: game7,
+        desc: "The game takes place two years after Conviction as Third Echelon is discharged by the president Patricia Caldwell. She decides to form Fourth Echelon after a terrorist attack, labelled Blacklist Zero, and Sam Fisher is appointed as the leader to stop future "
     }
 ]
 
