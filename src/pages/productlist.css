@@ -1,0 +1,26 @@
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 10px 80px;
+}
+.game-list .card {
+    background-color: rgb(33, 33, 33);
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-align: center;
+}
+.game-list .card:hover {
+    background-color: rgb(57, 57, 57);
+}
+.card h1 {
+    font-size: 1rem;
+    color: aliceblue;
+    margin: 10px;
+}
+.card p {
+    color: azure;
+}
+.card img {
+    width: 85%;
+}

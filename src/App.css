@@ -1,30 +1,70 @@
+:root {
+  --primary-clr: #850202;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+body {
+  background-color: black;
+}
 nav {
-  background-color: cornflowerblue;
+  background-color: black;
   padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav i {
+  font-size: 1.5rem;
+  color: aliceblue;
+  margin: 0 5px;
+}
+nav .logo {
+  color: aliceblue;
+  display: flex;
+  margin: 0 20px;
+  align-items: center;
+}
+.logo span {
+  color: var(--primary-clr);
 }
 nav ul {
   display: flex;
   list-style: none;
+  align-items: center;
 }
 ul li a{
   text-decoration: none;
-  margin: 10px 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
   color: aliceblue;
 }
-ul a:hover{
-  background-color: antiquewhite;
-  color: cornflowerblue;
+nav a:hover{
+  /* border: 1px solid red; */
+  /* padding: 5px 10px; */
+  color: var(--primary-clr);
 }
-
-footer {
+nav button {
+  padding: 5px 20px;
+  border: 1px solid var(--primary-clr);
+  outline: none;
+  background: transparent;
+  color: aliceblue;
+  /* border-top-left-radius: 25px; */
+}
+nav button:hover {
+  border: 1px solid var(--primary-clr);
+}
+.txtbox {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 25px 50px;
+  background-color: rgba(0, 0, 0, 0.457);
+  color: aliceblue;
+  border-bottom-left-radius: 25px;
 }
