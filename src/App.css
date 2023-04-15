@@ -17,8 +17,9 @@ ul li a{
   margin: 10px 20px;
   color: aliceblue;
 }
-ul a{
+ul a:hover{
   background-color: antiquewhite;
+  color: cornflowerblue;
 }
 
 footer {
