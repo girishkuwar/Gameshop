@@ -7,6 +7,11 @@ import Contact from './pages/Contact/Contact';
 import ProductList from './pages/ProductList/ProductList';
 import ProductPage from './pages/ProductPage/ProductPage';
 import Login from './pages/Login/Login';
+import Admin from './components/Admin/Admin';
+import Addgame from './components/Admin/Addgame';
+import GameList from './components/Admin/GameList';
+import Orders from './components/Admin/Orders';
+import Users from './components/Admin/Users';
 
 function App() {
   return (
@@ -20,6 +25,12 @@ function App() {
             <Route path='/productlist' element={<ProductList/>}/>
             <Route path='/productpage/:id' element={<ProductPage/>}/>
             <Route path='/login' element={<Login/>}/>
+          </Route>
+          <Route path='/admin' element={<Admin/>}>
+            <Route path='addgame' element={<Addgame/>}/>
+            <Route path='gamelist' element={<GameList/>}/>
+            <Route path='orders' element={<Orders/>}/>
+            <Route path='users' element={<Users/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
