@@ -17,3 +17,30 @@ h1 span {
     justify-content: center;
     margin-bottom: 50px;
 }
+.addgame h5 {
+    color: aliceblue;
+    margin-top: 10px;
+}
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    padding: 10px 80px;
+}
+.list .item {
+    background-color: rgb(37, 37, 37);
+    padding: 5px 5px;
+}
+.item img {
+    width: 90%;
+}
+.item h5 {
+    color: aliceblue;
+    font-weight: lighter;
+}
+.item button {
+    background: transparent;
+    color: var(--primary-clr);
+    margin: 1px 10px;
+    border: none;
+}

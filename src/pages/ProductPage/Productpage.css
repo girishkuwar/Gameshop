@@ -10,6 +10,7 @@
 }
 .row img {
     width: 80%;
+    border-top-right-radius: 50px;
 }
 .row h1 {
     color: aliceblue;
