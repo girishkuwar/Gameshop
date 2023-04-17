@@ -29,8 +29,8 @@ const GameList = () => {
           return (<div className='item'>
             <img src={g.imgurl} alt="" />
             <h5>{g.name}</h5>
-            <h5>{g.price}</h5>
-            <h5>{g.desc}</h5>
+            <h5>Rs. {g.price}</h5>
+            {/* <h5>{g.desc}</h5> */}
             <button>Update</button>
             <button>Delete</button>
           </div>)

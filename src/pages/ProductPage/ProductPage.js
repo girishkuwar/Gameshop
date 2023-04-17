@@ -38,7 +38,7 @@ const ProductPage = () => {
                     <h1>{game.name}</h1>
                     <p><b>RS. {game.price}</b></p>
                     <p>{game.desc}</p>
-                    <button>BUY</button>
+                    <button>Add To Cart</button>
                 </div>
             </div>
         </div>
