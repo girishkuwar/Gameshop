@@ -12,6 +12,7 @@ import Addgame from './components/Admin/Addgame';
 import GameList from './components/Admin/GameList';
 import Orders from './components/Admin/Orders';
 import Users from './components/Admin/Users';
+import UpdateGame from './components/Admin/UpdateGame';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           </Route>
           <Route path='/admin' element={<Admin/>}>
             <Route path='addgame' element={<Addgame/>}/>
+            <Route path='gamelist/updategame/:id' element={<UpdateGame/>}/>
             <Route path='gamelist' element={<GameList/>}/>
             <Route path='orders' element={<Orders/>}/>
             <Route path='users' element={<Users/>}/>

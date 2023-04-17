@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import supabase from '../../config/supabaseclient';
+import { Link } from 'react-router-dom';
 
 const GameList = () => {
   const [games, setgames] = useState([]);
@@ -31,7 +32,7 @@ const GameList = () => {
             <h5>{g.name}</h5>
             <h5>Rs. {g.price}</h5>
             {/* <h5>{g.desc}</h5> */}
-            <button>Update</button>
+            <button><Link to={"updategame/"+g.id}>Update</Link></button>
             <button>Delete</button>
           </div>)
         })

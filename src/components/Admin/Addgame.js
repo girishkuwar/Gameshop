@@ -7,11 +7,8 @@ const Addgame = () => {
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [img, setImg] = useState(null);
-  const [imgurl, setimgurl] = useState("");
   const [price, setPrice] = useState("");
   const [Quantity, setQuantity] = useState("");
-  const [success, setSuccess] = useState("");
-  const [err, seterr] = useState("");
 
   const handleImg = (e) => {
     setImg(e.target.files[0]);
@@ -27,6 +24,7 @@ const Addgame = () => {
     } else {
       console.log(error);
     }
+    alert("game added")
   }
 
 
@@ -47,7 +45,7 @@ const Addgame = () => {
   return (
     <div className='addgame'>
       <h5>Game Cover</h5>
-      <input type="file" src="" alt="" onChange={handleImg} />
+      <input className='file' type="file" src="" alt="" onChange={handleImg} />
       <h5>Name</h5>
       <input type="text" placeholder='name' onChange={(e) => setName(e.target.value)} value={name} />
       <h5>Description</h5>

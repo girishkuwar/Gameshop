@@ -21,6 +21,9 @@ h1 span {
     color: aliceblue;
     margin-top: 10px;
 }
+.addgame .file {
+    color: aliceblue;
+}
 .list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
