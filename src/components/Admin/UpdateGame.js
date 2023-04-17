@@ -26,6 +26,7 @@ const UpdateGame = () => {
                 setDesc(data.desc);
                 setPrice(data.price);
                 setQuantity(data.Quantity);
+                setImg(data.imgurl);
             } else {
                 console.log(error);
                 navigate("/");
@@ -69,6 +70,7 @@ const UpdateGame = () => {
         <div>
             <div className='addgame'>
                 <h5>Game Cover</h5>
+                <img src={img} style={{width: "100px"}} alt="" /><br/>
                 <input className='file' type="file" src="" alt="" onChange={handleImg} />
                 <h5>Name</h5>
                 <input type="text" placeholder='name' onChange={(e) => setName(e.target.value)} value={name} />

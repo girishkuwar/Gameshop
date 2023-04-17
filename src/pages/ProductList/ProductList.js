@@ -46,6 +46,7 @@ const ProductList = () => {
           </div>)
         })
       }
+      {(games.length < 1) && "fd"}
     </div>
   )
 }
