@@ -33,3 +33,7 @@
     border: none;
     border-radius: 10px;
 }
+.loginform span {
+    margin-top: 10px;
+    color: aliceblue;
+}

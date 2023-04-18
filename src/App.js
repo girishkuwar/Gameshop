@@ -13,6 +13,7 @@ import GameList from './components/Admin/GameList';
 import Orders from './components/Admin/Orders';
 import Users from './components/Admin/Users';
 import UpdateGame from './components/Admin/UpdateGame';
+import Signup from './pages/Login/Signup';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/productlist' element={<ProductList/>}/>
             <Route path='/productpage/:id' element={<ProductPage/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/signup' element={<Signup/>}/>
           </Route>
           <Route path='/admin' element={<Admin/>}>
             <Route path='addgame' element={<Addgame/>}/>

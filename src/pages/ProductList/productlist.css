@@ -6,14 +6,14 @@
 }
 
 .game-list .card {
-    background-color: rgb(33, 33, 33);
+    background-color: var(--dark);
     border-radius: 5px;
     padding: 5px 10px;
     text-align: center;
 }
 
 .game-list .card:hover {
-    background-color: rgb(57, 57, 57);
+    background-color: var(--dark-h);
 }
 
 .card h1 {

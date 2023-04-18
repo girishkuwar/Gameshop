@@ -1,7 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import carticon from "../img/colorful-shopping-cart-icon-png(1).png"
 const Header = () => {
+  const auth = localStorage.getItem('user');
+  const navigate = useNavigate();
+
+  const signout = () => {
+    localStorage.clear();
+    navigate('/login');
+  }
+
+
   return (
     <div>
       <nav>
@@ -14,7 +23,15 @@ const Header = () => {
           <li><a><Link to="/about">About</Link></a></li>
           <li><a><Link to="/contact">Contact</Link></a></li>
         </ul>
-        <button><Link to={"/login"}>Log In</Link></button>
+        <div className='logo'>
+        <img src={carticon} style={{width:"30px"}} alt="" />
+        {
+          auth ? <div className='logger'>
+          <h5>{auth}</h5>
+          <button onClick={signout}>Sign out</button> </div>:
+          <button><Link to={"/login"}>Log In</Link></button> 
+        }
+        </div>
       </nav>
     </div>
   )

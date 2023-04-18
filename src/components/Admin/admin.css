@@ -47,3 +47,18 @@ h1 span {
     margin: 1px 10px;
     border: none;
 }
+.tbl {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+table {
+    background-color: var(--dark);
+    color: aliceblue;
+}
+table th , td{
+    padding: 5px 10px;
+}
+table th {
+    border: 1px solid var(--primary-clr);
+}
