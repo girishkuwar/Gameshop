@@ -65,6 +65,33 @@ nav button {
 nav button:hover {
   border: 1px solid var(--primary-clr);
 }
+
+.cart{
+  position: relative;
+}
+  .cart img {
+    position: relative;
+    font-size: 3.2rem;
+  }
+  .cart span {
+    width: 1.4rem;
+    height: 1.4rem;
+    position: absolute;
+    background-color: #000;
+    color: wheat;
+    border-radius: 50%;
+    border: 1px solid var(--primary-clr);
+    display: grid;
+    place-items: center;
+    top: -10%;
+    left: 60%;
+  }
+
+
+
+
+
+
 .logger {
   display: flex;
   align-items: center;

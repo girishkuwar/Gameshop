@@ -14,10 +14,14 @@ import Orders from './components/Admin/Orders';
 import Users from './components/Admin/Users';
 import UpdateGame from './components/Admin/UpdateGame';
 import Signup from './pages/Login/Signup';
+import Cart from './pages/Cart/Cart';
+import Cartstate from './context/CartState';
+import Payment from './pages/payment/Payment';
 
 function App() {
   return (
     <div className="App">
+      <Cartstate>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />}>
@@ -28,6 +32,8 @@ function App() {
             <Route path='/productpage/:id' element={<ProductPage/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<Signup/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/payment' element={<Payment/>}/>
           </Route>
           <Route path='/admin' element={<Admin/>}>
             <Route path='addgame' element={<Addgame/>}/>
@@ -38,6 +44,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </Cartstate>
     </div>
   );
 }

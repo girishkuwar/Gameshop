@@ -29,6 +29,7 @@ const Login = () => {
     }
     if(data.email === email){
       localStorage.setItem("user",data.name);
+      localStorage.setItem("userid",data.id);
       navigate("/");
     }
   }
