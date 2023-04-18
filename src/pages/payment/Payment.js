@@ -47,7 +47,7 @@ const Payment = () => {
             <div className="payment-page">
                 <h4>Total item {gameslist.length}</h4>
                 <h5>Total :Rs {total}</h5>
-                <h5>Cash On Delevery</h5>
+                {/* <h5>Cash On Delevery</h5> */}
                 <button onClick={buyItems}>Procced</button>
             </div>
         </div>

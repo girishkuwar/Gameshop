@@ -62,3 +62,17 @@ table th , td{
 table th {
     border: 1px solid var(--primary-clr);
 }
+.ordertop {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 50px;
+}
+.ordertop h1 {
+    font-size: 1rem;
+}
+.ordertop h3 {
+    color: antiquewhite;
+    font-size: 0.8rem;
+    color: var(--primary-clr);
+}

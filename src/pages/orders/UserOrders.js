@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import supabase from '../../config/supabaseclient';
 import { useNavigate } from 'react-router-dom';
+import "./userorder.css"
 
 const UserOrders = () => {
     const [orders, setorders] = useState([]);
@@ -30,13 +31,13 @@ const UserOrders = () => {
     }, [])
 
     return (
-        <div>
+        <div className='userorders'>
             {
                 orders.map((o) => {
-                    return(<>
+                    return(<div className='orders-list'>
                     <h1>{o.gamename}</h1>
                     <h5>{o.status}</h5>
-                    </>)
+                    </div>)
                 })
             }
         </div>

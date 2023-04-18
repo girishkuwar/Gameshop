@@ -1,0 +1,11 @@
+.userorders {
+    padding: 100px 10%;
+}
+
+
+.orders-list {
+    padding: 10px 0;
+}
+.orders-list h5 {
+    color: var(--primary-clr);
+}

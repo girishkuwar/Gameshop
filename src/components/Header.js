@@ -32,9 +32,9 @@ const Header = () => {
             <h5>Game<span>Shop</span></h5></li>
           <li><a href='/'><Link to="/">Home</Link></a></li>
           <li><a href='/'><Link to="/productlist">Games Gallery</Link></a></li>
-          <li><a href='/'><Link to="/about">About</Link></a></li>
           <li><a href='/'><Link to="/userorders">Orders</Link></a></li>
           <li><a href='/'><Link to="/contact">Contact</Link></a></li>
+          <li><a href='/'><Link to="/about">About</Link></a></li>
         </ul>
         <div className='logo'>
           <div className="cart"><Link to={"/cart"}>
