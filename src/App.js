@@ -9,14 +9,15 @@ import ProductPage from './pages/ProductPage/ProductPage';
 import Login from './pages/Login/Login';
 import Admin from './components/Admin/Admin';
 import Addgame from './components/Admin/Addgame';
-import GameList from './components/Admin/GameList';
 import Orders from './components/Admin/Orders';
+import GameList from './components/Admin/GameList';
 import Users from './components/Admin/Users';
 import UpdateGame from './components/Admin/UpdateGame';
 import Signup from './pages/Login/Signup';
 import Cart from './pages/Cart/Cart';
 import Cartstate from './context/CartState';
 import Payment from './pages/payment/Payment';
+import UserOrders from './pages/orders/UserOrders';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path='/productpage/:id' element={<ProductPage/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/signup' element={<Signup/>}/>
+            <Route path='/userorders' element={<UserOrders/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/payment' element={<Payment/>}/>
           </Route>
