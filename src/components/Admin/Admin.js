@@ -7,10 +7,10 @@ const Admin = () => {
     <div className='heading'>
       <h1>Game<span>Shop</span></h1>
       <ul>
-        <li><a href=""><Link to={"addgame"}>Add Game</Link></a></li>
-        <li><a href=""><Link to={"gamelist"}>Gamelist</Link></a></li>
-        <li><a href=""><Link to={"orders"}>Orders</Link></a></li>
-        <li><a href=""><Link to={"users"}>users</Link></a></li>
+        <li><a href="/"><Link to={"addgame"}>Add Game</Link></a></li>
+        <li><a href="/"><Link to={"gamelist"}>Gamelist</Link></a></li>
+        <li><a href="/"><Link to={"orders"}>Orders</Link></a></li>
+        <li><a href="/"><Link to={"users"}>users</Link></a></li>
       </ul>
       <Outlet/>
     </div>

@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Connect With us</h3>
           <ul className="social-icons">
-            <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="/"><i class="fa fa-facebook-square"></i></a></li>
+            <li><a href="/"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="/"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="/"><i class="fa fa-youtube"></i></a></li>
           </ul>
         </div>
         <div className="footer-column">

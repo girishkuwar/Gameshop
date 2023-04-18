@@ -28,7 +28,7 @@ const UserOrders = () => {
             console.log("done");
         }
         getOrder();
-    }, [])
+    }, [navigate])
 
     return (
         <div className='userorders'>
