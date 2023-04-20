@@ -49,10 +49,14 @@ nav a:hover{
   /* padding: 5px 10px; */
   color: var(--primary-clr);
 }
-a:visited {
+/* a:visited {
   color: inherit;
   text-decoration: inherit;
+} */
+.active {
+  color: var(--primary-clr);
 }
+
 nav button {
   padding: 5px 20px;
   border: 1px solid var(--primary-clr);
@@ -64,6 +68,7 @@ nav button {
 }
 nav button:hover {
   border: 1px solid var(--primary-clr);
+  background-color: rgb(52, 52, 52);
 }
 
 .cart{
@@ -99,7 +104,11 @@ nav button:hover {
 .logger h5 {
   margin: 0 25px;
 }
-
+.heading {
+  position: absolute;
+  width: 100%;
+  margin-top: 20rem;
+}
 .txtbox {
   position: absolute;
   top: 50%;
@@ -109,8 +118,8 @@ nav button:hover {
   background-color: rgba(0, 0, 0, 0.457);
   color: aliceblue;
   border-bottom-left-radius: 25px;
+  z-index: 15;
 }
-
 
 .loader {
   position: relative;
@@ -122,4 +131,22 @@ nav button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+
+@media screen and (min-width: 480px) {
+  nav {
+    overflow-y: scroll;
+    padding-left: 0;
+    padding-right: 0;
+    color: #212121;
+  }
+  nav ul li a{
+    padding: 0 5px;
+  }
+  .heading {
+    margin-top: 150px;
+  }
+  .txtbox {
+    font-size: .7rem;
+  }
 }

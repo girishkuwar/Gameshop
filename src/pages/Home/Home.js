@@ -8,6 +8,13 @@ import gamingBg3 from '../../img/gaming3.jpg'
 const Home = () => {
   return (
     <div>
+      <div className="heading">
+      <div className="txtbox">
+        <h1>GameShop</h1>
+        <p>I'm not a player. I'm a gamer. Players get chicks. I get achievements.</p>
+        <p>Education is important, but video games are importanter.</p>
+      </div>
+      </div>
       <Carousel autoPlay={true} interval={3000} infiniteLoop={true} showArrows={false} showThumbs={false} showStatus={false} showIndicators={false}>
         <div>
           <img src={gamingBg1} alt=''/>
@@ -22,11 +29,6 @@ const Home = () => {
           {/* <p className="legend">Legend 3</p> */}
         </div>
       </Carousel>
-      <div className="txtbox">
-        <h1>GameShop</h1>
-        <p>I'm not a player. I'm a gamer. Players get chicks. I get achievements.</p>
-        <p>Education is important, but video games are importanter.</p>
-      </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, NavLink } from 'react-router-dom'
 import carticon from "../img/colorful-shopping-cart-icon-png(1).png"
 import cartContext from '../context/CartContext'
 
@@ -30,11 +30,11 @@ const Header = () => {
           <li className='logo'>
             <i class="fa fa-gamepad"></i>
             <h5>Game<span>Shop</span></h5></li>
-          <li><a href='/'><Link to="/">Home</Link></a></li>
-          <li><a href='/'><Link to="/productlist">Games Gallery</Link></a></li>
-          <li><a href='/'><Link to="/userorders">Orders</Link></a></li>
-          <li><a href='/'><Link to="/contact">Contact</Link></a></li>
-          <li><a href='/'><Link to="/about">About</Link></a></li>
+          <li><a href='/'><NavLink  to="/">Home</NavLink></a></li>
+          <li><a href='/'><NavLink to="/productlist">Games Gallery</NavLink></a></li>
+          <li><a href='/'><NavLink  to="/userorders">Orders</NavLink></a></li>
+          <li><a href='/'><NavLink to="/contact">Contact</NavLink></a></li>
+          <li><a href='/'><NavLink to="/about">About</NavLink></a></li>
         </ul>
         <div className='logo'>
           <div className="cart"><Link to={"/cart"}>
