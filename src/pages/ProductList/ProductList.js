@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './productlist.css'
 import { Link } from 'react-router-dom'
 import supabase from '../../config/supabaseclient'
+import Loader from '../../components/Loader'
 
 
 const ProductList = () => {
@@ -46,7 +47,7 @@ const ProductList = () => {
           </div>)
         })
       }
-      {(games.length < 1) && "fd"}
+      {(games.length < 1) && <Loader/>}
     </div>
   )
 }

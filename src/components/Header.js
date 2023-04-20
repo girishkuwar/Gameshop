@@ -31,7 +31,7 @@ const Header = () => {
             <i class="fa fa-gamepad"></i>
             <h5>Game<span>Shop</span></h5></li>
           <li><a href='/'><NavLink  to="/">Home</NavLink></a></li>
-          <li><a href='/'><NavLink to="/productlist">Games Gallery</NavLink></a></li>
+          <li><a href='/'><NavLink to="/productlist">GameGallery</NavLink></a></li>
           <li><a href='/'><NavLink  to="/userorders">Orders</NavLink></a></li>
           <li><a href='/'><NavLink to="/contact">Contact</NavLink></a></li>
           <li><a href='/'><NavLink to="/about">About</NavLink></a></li>

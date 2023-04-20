@@ -1,10 +1,12 @@
 import React from 'react'
+import "./loader.css"
 
 const Loader = () => {
   return (
     <div>
       <div className='loader'>
-        <img src="" alt="" />
+        <div className="ring"></div>
+        <span>Loading</span>
         </div>
     </div>
   )
