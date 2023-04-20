@@ -1,3 +1,66 @@
-h5 ,h4 {
-    color: aliceblue;
+.payment {
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.payment-page {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 50px;
+}
+.payment-page h5 {
+    color: var(--primary);
+}
+.container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-bottom: 60px;
+}
+.container form {
+    background: rgb(30, 30, 30);
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(255, 0, 0, 0.1);
+    padding: 20px;
+    width: 600px;
+}
+.container form .inputbox {
+    margin-top: 20px;
+}
+.container form .inputbox span {
+    display: block;
+    color: #999;
+    padding-bottom: 5px;
+}
+.container form .inputbox input , select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    color: #444;
+}
+.container form .flexbox {
+    display: flex;
+    gap: 15px;
+}
+.container form .flexbox .inputbox {
+    flex: 1 1 150px;
+}
+.container form .submit-btn {
+    width: 100%;
+    background: linear-gradient(45deg, blueviolet , rgb(255, 20, 20));
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: .2s linear;
+}
+.container form .submit-btn:hover {
+    letter-spacing: 2px;
+    opacity: .8;
 }
