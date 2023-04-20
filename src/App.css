@@ -139,14 +139,15 @@ nav button:hover {
     padding-left: 0;
     padding-right: 0;
     color: #212121;
+    /* display: block; */
   }
   nav ul li a{
     padding: 0 5px;
   }
   .heading {
-    margin-top: 150px;
+    /* margin-top: 150px; */
   }
   .txtbox {
-    font-size: .7rem;
+    /* font-size: .7rem; */
   }
 }
