@@ -27,3 +27,18 @@
     color: aliceblue;
     border-radius: 10px;
 }
+
+@media screen and (max-width: 720px) {
+    .game-info .col {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .game-info .row {
+        width: 100%;
+    }
+    .row img {
+        width: 100%;
+    }
+
+}

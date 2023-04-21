@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, NavLink } from 'react-router-dom'
 import carticon from "../img/colorful-shopping-cart-icon-png(1).png"
 import cartContext from '../context/CartContext'
@@ -6,6 +6,7 @@ import cartContext from '../context/CartContext'
 
 const Header = () => {
   const auth = localStorage.getItem('user');
+  const [isActive, setActive] = useState(false)
   const cart = JSON.parse(localStorage.getItem('cart'));
   const cartc = useContext(cartContext);
   const navigate = useNavigate();
@@ -28,21 +29,30 @@ const Header = () => {
     localStorage.clear();
     navigate('/login');
   }
-
+  const toggleClass = () => {
+    setActive(!isActive);
+  }
 
   return (
     <div>
-      <nav>
-        <ul>
+      <nav className={isActive ? "active" : null}>
+        <>
           <li onClick={adminopen} className='logo'>
             <i className="fa fa-gamepad"></i>
             <h5>Game<span>Shop</span></h5></li>
+        </>
+        <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/productlist">GameGallery</NavLink></li>
           <li><NavLink to="/userorders">Orders</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="/about">About</NavLink></li>
         </ul>
+        <div onClick={toggleClass} className="menu">
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
         <div className='logo'>
           <div className="cart"><Link to={"/cart"}>
             <img src={carticon} style={{ width: "30px" }} alt="" />

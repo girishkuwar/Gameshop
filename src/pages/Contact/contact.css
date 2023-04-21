@@ -61,3 +61,13 @@
     
   }
   
+  @media screen and (max-width: 720px) {
+    .contact {
+      padding: 0 5%;  
+      grid-template-columns: repeat(1,2fr);
+    }
+    .contact-txt {
+      margin-top: 50px;
+    }
+
+  }
