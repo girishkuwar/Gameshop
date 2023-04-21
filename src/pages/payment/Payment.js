@@ -40,7 +40,7 @@ const Payment = () => {
         } else {
             console.log("done");
         }
-        alert("game added")
+        alert("Ready For Play")
     }
     return (
         <div className='payment'>
@@ -93,7 +93,7 @@ const Payment = () => {
                         </div>
                         <div className="inputbox">
                             <span>cvv</span>
-                            <input type="text" maxLength={4} className='cvv-input'/>
+                            <input type="text" maxLength={3} className='cvv-input'/>
                         </div>
                     </div>
                     <input type="submit"  value='submit' className='submit-btn'/>

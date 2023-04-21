@@ -1,0 +1,29 @@
+.about {
+    width: 100%;
+}
+.myinfo {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* z-index: -5; */
+    color: aliceblue;
+    background-color: aqua;
+    text-align: center;
+    animation: move linear infinite;
+}
+.myinfo span {
+    color: var(--primary-clr);
+}
+.myinfo h2 , h1 , h3 {
+    margin: 10px 0;
+}
+
+@keyframes move {
+    0%{
+        top: 120%;
+    }
+    100%{
+        top: -50%;
+    }
+} 
