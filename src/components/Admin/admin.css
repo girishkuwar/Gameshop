@@ -67,7 +67,8 @@ table th {
 }
 .ordertop {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    padding-left: 100px;
     align-items: baseline;
     gap: 50px;
 }
@@ -78,4 +79,10 @@ table th {
     color: antiquewhite;
     font-size: 0.8rem;
     color: var(--primary-clr);
+}
+.ordertop select {
+    width: 100px;
+}
+h5 {
+    color: aliceblue;
 }

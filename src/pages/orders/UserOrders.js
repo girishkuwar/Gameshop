@@ -39,7 +39,7 @@ const UserOrders = () => {
                         orders.map((o) => {
                             return (<div className='orders-list'>
                                 <h1>{o.gamename}</h1>
-                                <h5>{o.status}</h5>
+                               {(o.status === "Download") ? <a href="/">Downlaod</a> : <h5>{o.status}</h5>} 
                             </div>)
                         })
                     }

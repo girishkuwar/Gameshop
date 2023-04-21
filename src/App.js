@@ -40,7 +40,7 @@ function App() {
             <Route path='*' element={<Notfound/>}/> 
           </Route>
           <Route path='/admin' element={<Admin/>}>
-            <Route path='addgame' element={<Addgame/>}/>
+            <Route index element={<Addgame/>}/>
             <Route path='gamelist/updategame/:id' element={<UpdateGame/>}/>
             <Route path='gamelist' element={<GameList/>}/>
             <Route path='orders' element={<Orders/>}/>
