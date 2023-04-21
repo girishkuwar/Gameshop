@@ -31,15 +31,33 @@ const UserOrders = () => {
         getOrder();
     }, [navigate])
 
+    const downloadFile = (o) => {
+        var element = document.createElement('a');
+        let textfile = JSON.stringify(o);
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textfile));
+        element.setAttribute('download', o.gamename+".txt");
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+    }
+
+    // Start file download.
+    // download("hello.txt", "This is the content of my file :)");
+
+
     return (
         <>
             {
                 (orders.length < 1) ? <Loader /> : <div className='userorders'>
                     {
-                        orders.map((o) => {
-                            return (<div className='orders-list'>
+                        orders.map((o,i) => {
+                            return (<div className='orders-list' key={i}>
                                 <h1>{o.gamename}</h1>
-                               {(o.status === "Download") ? <a href="/">Downlaod</a> : <h5>{o.status}</h5>} 
+                                {(o.status === "Download") ? <a onClick={() => downloadFile(o)}>Download</a> : <h5>{o.status}</h5>}
                             </div>)
                         })
                     }

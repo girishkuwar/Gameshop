@@ -52,7 +52,7 @@ const UpdateGame = () => {
     } else {
       console.log(error);
     }
-    console.log("game updated");
+    alert("game updated");
   }
 
   const deleteCover = async () => {

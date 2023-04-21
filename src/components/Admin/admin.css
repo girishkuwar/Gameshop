@@ -82,6 +82,10 @@ table th {
 }
 .ordertop select {
     width: 100px;
+    height: 40px;
+}
+.ordertop button {
+    padding: 5px 10px;
 }
 h5 {
     color: aliceblue;

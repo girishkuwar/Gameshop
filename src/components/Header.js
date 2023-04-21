@@ -14,7 +14,7 @@ const Header = () => {
 
   useEffect(() => {
     cartc.update();
-  }, [cartc])
+  }, [])
 
   const adminopen = () => {
     count++;
@@ -35,13 +35,13 @@ const Header = () => {
       <nav>
         <ul>
           <li onClick={adminopen} className='logo'>
-            <i class="fa fa-gamepad"></i>
+            <i className="fa fa-gamepad"></i>
             <h5>Game<span>Shop</span></h5></li>
-          <li><a href='/'><NavLink to="/">Home</NavLink></a></li>
-          <li><a href='/'><NavLink to="/productlist">GameGallery</NavLink></a></li>
-          <li><a href='/'><NavLink to="/userorders">Orders</NavLink></a></li>
-          <li><a href='/'><NavLink to="/contact">Contact</NavLink></a></li>
-          <li><a href='/'><NavLink to="/about">About</NavLink></a></li>
+          <li><NavLink to="/">Home</NavLink></li>
+          <li><NavLink to="/productlist">GameGallery</NavLink></li>
+          <li><NavLink to="/userorders">Orders</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
+          <li><NavLink to="/about">About</NavLink></li>
         </ul>
         <div className='logo'>
           <div className="cart"><Link to={"/cart"}>

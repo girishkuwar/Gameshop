@@ -27,19 +27,9 @@ const ProductList = () => {
   }, [])
   return (
     <div className='game-list'>
-      {/* {
-        gamelist.map((e) => {
-          return (<div className='card'><Link to={"/productpage/" + e.id}>
-            <h1>{e.name}</h1>
-            <img src={e.img} alt="" />
-            <p>{e.desc}</p>
-          </Link>
-          </div>)
-        })
-      } */}
       {
-        games.map((e) => {
-          return (<div className='card'><Link to={"/productpage/" + e.id}>
+        games.map((e,i) => {
+          return (<div className='card' key={i}><Link to={"/productpage/" + e.id}>
             <h1>{e.name}</h1>
             <img src={e.imgurl} alt='' />
             <p>{e.desc}</p>
