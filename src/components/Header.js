@@ -44,7 +44,7 @@ const Header = () => {
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/productlist">GameGallery</NavLink></li>
-          <li><NavLink to="/userorders">Orders</NavLink></li>
+          <li><NavLink to="/userorders">My Games</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="/about">About</NavLink></li>
         </ul>
