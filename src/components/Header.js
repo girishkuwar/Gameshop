@@ -27,9 +27,9 @@ const Header = () => {
     <div>
       <nav>
         <ul>
-          <li className='logo'>
+          <NavLink to={"/admin"}><li className='logo'>
             <i class="fa fa-gamepad"></i>
-            <h5>Game<span>Shop</span></h5></li>
+            <h5>Game<span>Shop</span></h5></li></NavLink>
           <li><a href='/'><NavLink  to="/">Home</NavLink></a></li>
           <li><a href='/'><NavLink to="/productlist">GameGallery</NavLink></a></li>
           <li><a href='/'><NavLink  to="/userorders">Orders</NavLink></a></li>

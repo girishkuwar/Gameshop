@@ -8,7 +8,7 @@ import gamingBg3 from '../../img/gaming3.jpg'
 const Home = () => {
   return (
     <div>
-      <div className="heading">
+      <div className="home-heading">
       <div className="txtbox">
         <h1>GameShop</h1>
         <p>I'm not a player. I'm a gamer. Players get chicks. I get achievements.</p>
