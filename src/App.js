@@ -18,6 +18,7 @@ import Cart from './pages/Cart/Cart';
 import Cartstate from './context/CartState';
 import Payment from './pages/payment/Payment';
 import UserOrders from './pages/orders/UserOrders';
+import Notfound from './pages/404/Notfound';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path='/userorders' element={<UserOrders/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/payment' element={<Payment/>}/>
+            <Route path='*' element={<Notfound/>}/> 
           </Route>
           <Route path='/admin' element={<Admin/>}>
             <Route path='addgame' element={<Addgame/>}/>

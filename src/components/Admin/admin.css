@@ -7,6 +7,9 @@
     color: aliceblue;
     margin-bottom: 25px;
 }
+.heading a{
+    text-decoration: none;
+}
 h1 span {
     color: var(--primary-clr);
 }

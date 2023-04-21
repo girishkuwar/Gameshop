@@ -1,0 +1,23 @@
+.nopage-container {
+    text-align: center;
+}
+.nopage-container h1 {
+    font-size: 10rem;
+}
+.nopage-container h2 {
+    font-size: 2rem;
+    color: aliceblue;
+}
+.nopage-container h3 {
+    color: aliceblue;
+}
+.nopage-container button {
+    background-color: var(--primary-clr);
+    padding: 5px 10px;
+    color: aliceblue;
+    margin: 10px 5px;
+}
+.nopage-container a {
+    color: aliceblue;
+    text-decoration: none;
+}
