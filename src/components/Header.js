@@ -23,6 +23,15 @@ const Header = () => {
       navigate("/admin");
     }
   }
+  var pageScrollpos = window.scrollY;
+  window.onscroll = function() {
+    var currentScrollPos = window.scrollY;
+    if(pageScrollpos < currentScrollPos) {
+      if(isActive){
+      setActive(!isActive);
+    }
+    }
+  }
 
 
   const signout = () => {

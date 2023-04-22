@@ -60,7 +60,6 @@ nav button {
   background: transparent;
   color: aliceblue;
   text-decoration: none;
-  /* border-top-left-radius: 25px; */
 }
 nav button:hover {
   border: 1px solid var(--primary-clr);
@@ -132,14 +131,19 @@ nav button:hover {
 @media screen and (max-width: 720px) {
   nav {
     padding: 10px 0;
+    font-size: .8rem;
+  }
+  nav button {
+    font-size: .6rem;
+    padding: 5px 10px;
   }
   nav ul {
     position: absolute;
     display: block;
     top: 51px;
-    width: 100vw;
+    width: fit-content;
     height: 0;
-    background: #212121d2;
+    background: #212121;
     z-index: 100;
     transition: .2s;
   }
@@ -150,7 +154,7 @@ nav button:hover {
   }
   nav.active ul {
     height: fit-content;
-    background: #212121d2;
+    background: #212121;
   }
   nav.active ul li {
     opacity: 1;
@@ -165,7 +169,7 @@ nav button:hover {
     margin: 5px 0;
   }
   .home-heading {
-    margin-top: 11rem;
+    margin-top: 7rem;
     font-size: .7rem;
   }
   .home-heading .txtbox {

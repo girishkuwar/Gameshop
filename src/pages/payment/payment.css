@@ -64,3 +64,10 @@
     letter-spacing: 2px;
     opacity: .8;
 }
+
+@media screen and (max-width: 720px) {
+   .container form {
+    width: 95%;
+    margin-top: 10px;
+   }
+  }

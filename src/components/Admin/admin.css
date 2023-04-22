@@ -3,16 +3,20 @@
     flex-direction: column;
     text-align: center;
 }
+
 .heading h1 {
     color: aliceblue;
     margin-bottom: 25px;
 }
-.heading a{
+
+.heading a {
     text-decoration: none;
 }
+
 h1 span {
     color: var(--primary-clr);
 }
+
 .heading ul {
     display: flex;
     width: 100%;
@@ -20,51 +24,64 @@ h1 span {
     justify-content: center;
     margin-bottom: 50px;
 }
+
 .addgame h5 {
     color: aliceblue;
     margin-top: 10px;
 }
+
 .addgame .file {
     color: aliceblue;
 }
+
 .list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 25px;
     padding: 10px 80px;
 }
+
 .list .item {
     background-color: rgb(37, 37, 37);
     padding: 5px 5px;
 }
+
 .item img {
     width: 90%;
 }
+
 .item h5 {
     color: aliceblue;
     font-weight: lighter;
 }
+
 .item button {
     background: transparent;
     color: var(--primary-clr);
     margin: 1px 10px;
     border: none;
 }
+
 .tbl {
     width: 100%;
     display: flex;
     justify-content: center;
 }
+
 table {
     background-color: var(--dark);
     color: aliceblue;
 }
-table th , td{
+
+table th,
+td {
     padding: 5px 10px;
 }
+
 table th {
     border: 1px solid var(--primary-clr);
 }
+
 .ordertop {
     display: flex;
     justify-content: left;
@@ -72,21 +89,42 @@ table th {
     align-items: baseline;
     gap: 50px;
 }
+
 .ordertop h1 {
     font-size: 1rem;
 }
+
 .ordertop h3 {
     color: antiquewhite;
     font-size: 0.8rem;
     color: var(--primary-clr);
 }
+
 .ordertop select {
     width: 100px;
     height: 40px;
 }
+
 .ordertop button {
     padding: 5px 10px;
 }
+
 h5 {
     color: aliceblue;
+}
+
+@media screen and (max-width: 720px) {
+    .heading ul li a{
+        padding: 0 5px;
+    }
+    .list {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        padding: 0 10px; 
+        gap: 5px;
+    }
+    .ordertop {
+        gap: 5px;
+        padding-left: 0;
+        padding: 10px 5%;
+    }
 }
