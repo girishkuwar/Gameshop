@@ -37,3 +37,12 @@
     margin-top: 10px;
     color: aliceblue;
 }
+@media screen and (max-width:720px) {
+    .loginform {
+        width: 100%;
+    }
+    .loginform input {
+        width: 70%;
+        height: 50px;
+    }
+}

@@ -12,10 +12,14 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Connect With us</h3>
           <ul className="social-icons">
+            <div className="row">
             <li><a href="/"><i className="fa fa-facebook"></i></a>Facebook</li>
             <li><a href="/"><i className="fa fa-twitter"></i></a>Twitter</li>
+            </div>
+            <div className="row">
             <li><a href="/"><i className="fa fa-instagram"></i></a>Instagram</li>
             <li><a href="/"><i className="fa fa-youtube"></i></a>Youtube</li>
+            </div>
           </ul>
         </div>
       </div>
