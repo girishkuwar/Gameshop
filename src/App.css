@@ -161,6 +161,9 @@ nav button:hover {
   } 
   .menu {
     display: block;
+    position: absolute;
+    z-index: 100;
+    margin-left: 5px;
   }
   .menu .line {
     width: 20px;

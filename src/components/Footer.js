@@ -17,7 +17,7 @@ const Footer = () => {
             <li><a href="/"><i className="fa fa-twitter"></i></a>Twitter</li>
             </div>
             <div className="row">
-            <li><a href="/"><i className="fa fa-instagram"></i></a>Instagram</li>
+            <li><a href="https://instagram.com/girish.kuwar"><i className="fa fa-instagram"></i></a>Instagram</li>
             <li><a href="/"><i className="fa fa-youtube"></i></a>Youtube</li>
             </div>
           </ul>

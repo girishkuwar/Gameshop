@@ -21,6 +21,9 @@
     color: var(--primary-clr);
     margin-bottom: 10px;
   }
+  .contact-txt h2 {
+    color: aliceblue;
+  }
   .contact-form p {
     color: #c6c9d8bf;
     line-height: 26px;
