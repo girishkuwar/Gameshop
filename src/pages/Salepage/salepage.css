@@ -49,5 +49,6 @@ section p:first-child , .timer div:last-child span {
     }
     .salepage .col .row {
         width: 100%;
+        padding: 10px 20px;
     }
 }
