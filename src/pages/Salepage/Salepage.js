@@ -32,16 +32,12 @@ const Salepage = () => {
         <div className='salepage'>
             <div className="col">
                 <div className="row">
+                    <h1>10% Off</h1>
+                    <h5>Limited Time</h5>
+                </div>
+                <div className="row">
                     <Timer />
                 </div>
-                {game && 
-                <div className="row">
-                    <h1>{game.name}</h1>
-                    <img src={game.imgurl} alt="" />
-                    <h5>Rs.<s>{game.price}</s></h5>
-                    <h4>10 % off</h4>
-                    <h5>{game.price - (game.price * (10 / 100)).toFixed(1)}</h5>
-                </div>}
             </div>
         </div>
     )

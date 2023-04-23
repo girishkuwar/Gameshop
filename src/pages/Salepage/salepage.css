@@ -41,3 +41,13 @@
 section p:first-child , .timer div:last-child span {
     font-size: 3em;
 }
+
+
+@media screen and (max-width: 720px) {  
+    .salepage .col {
+        flex-direction: column;
+    }
+    .salepage .col .row {
+        width: 100%;
+    }
+}
