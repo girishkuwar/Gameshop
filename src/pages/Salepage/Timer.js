@@ -1,36 +1,74 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import "./salepage.css"
-
-const Timer = (props) => {
-    const { initMinute = 60, initSeconds = 30 } = props
-    const [minutes, setMinutes] = useState(initMinute)
-    const [seconds, setSeconds] = useState(initSeconds)
-
-    useEffect(() => {
-        let myInterval = setInterval(() => {
-            if (seconds > 0) {
-              setSeconds(seconds - 1)
-            } if (seconds === 0) {
-              if (minutes === 0) {
-                clearInterval(myInterval)
-              } else {
-                setMinutes(minutes - 1)
-                setSeconds(59)
-              }
-            }
-          }, 1000)
-    }, [minutes,seconds])
+import { useState } from 'react'
 
 
-    return (
-        <React.Fragment>
-            <div className='wrapper'>
-                    <React.Fragment>
-                        <h1>00:15:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
-                    </React.Fragment>
-            </div>
-        </React.Fragment>
-    )
+const Timer = () => {
+  const [days, setDays] = useState('00');
+  const [hours, setHours] = useState('00');
+  const [minutes, seMinutes] = useState('00');
+  const [timersecond, setSecond] = useState('00');
+
+  let interval = useRef();
+
+  useEffect(() => {
+    startTimer();
+  
+    return () => {
+      clearInterval(interval.current);
+    }
+  }, [])
+  
+
+  const startTimer = () => {
+    const countDownDate =  new Date('May 5, 2023 00:00:00').getTime();
+
+    interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countDownDate - now;
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if ( distance < 0) {
+          clearInterval(interval.current);
+        } else {
+          setDays(days);
+          seMinutes(minutes);
+          setHours(hours);
+          setSecond(seconds);
+      }
+
+     } , 1000);
+  }
+
+  return (
+    <section className='timer'>
+      <div className=""> Timer For Sale</div>
+      <div className="">
+        <section>
+          <p>{days}</p>
+          <p><small>Days</small></p>
+        </section>
+        <span>:</span>
+        <section>
+          <p>{hours}</p>
+          <p><small>Hours</small></p>
+        </section>
+        <span>:</span>
+        <section>
+          <p>{minutes}</p>
+          <p><small>minutes</small></p>
+        </section>
+        <span>:</span>
+        <section>
+          <p>{timersecond}</p>
+          <p><small>Second</small></p>
+        </section>
+      </div>
+    </section>
+  )
 }
 
 export default Timer

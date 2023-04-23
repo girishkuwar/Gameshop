@@ -1,5 +1,9 @@
 import React from 'react'
 import './footer.css'
+import facebooklogo from "../img/facebook-f.svg"
+import instragramlogo from "../img/instagram.svg"
+import twitterlogo from "../img/twitter.svg"
+import youtubelogo from "../img/youtube.svg"
 
 const Footer = () => {
   return (
@@ -13,12 +17,12 @@ const Footer = () => {
           <h3>Connect With us</h3>
           <ul className="social-icons">
             <div className="row">
-            <li><a href="/"><i className="fa fa-facebook"></i></a>Facebook</li>
-            <li><a href="/"><i className="fa fa-twitter"></i></a>Twitter</li>
+            <li><a href="/"><img src={facebooklogo} alt="" /></a>Facebook</li>
+            <li><a href="/"><img src={twitterlogo} alt="" /></a>Twitter</li>
             </div>
             <div className="row">
-            <li><a href="https://instagram.com/girish.kuwar"><i className="fa fa-instagram"></i></a>Instagram</li>
-            <li><a href="/"><i className="fa fa-youtube"></i></a>Youtube</li>
+            <li><a href="https://instagram.com/girish.kuwar"><img src={instragramlogo} alt="" /></a>Instagram</li>
+            <li><a href="/"><img src={youtubelogo} alt="" /></a>Youtube</li>
             </div>
           </ul>
         </div>

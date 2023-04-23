@@ -45,15 +45,15 @@ const Header = () => {
   return (
     <div>
       <nav className={isActive ? "active" : null}>
-        <>
+        <i>
           <li onClick={adminopen} className='logo'>
             <i className="fa fa-gamepad"></i>
             <h5>Game<span>Shop</span></h5></li>
-        </>
+        </i>
         <ul>
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/productlist">GameGallery</NavLink></li>
-          <li><NavLink to="/userorders">My Games</NavLink></li>
+          <li><NavLink to="/userorders">MyGames</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="/about">About</NavLink></li>
         </ul>

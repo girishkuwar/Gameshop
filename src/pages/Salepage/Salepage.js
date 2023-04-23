@@ -8,6 +8,7 @@ import supabase from '../../config/supabaseclient';
 const Salepage = () => {
     const [games, setgames] = useState([]);
     const [game, setGame] = useState([]);
+
     useEffect(() => {
         const fetchgames = async () => {
             const { data, error } = await supabase
@@ -17,28 +18,31 @@ const Salepage = () => {
             if (error) {
                 console.log(error)
             }
-            if (data) {
-                // console.log(data);
-                setgames(data);
-                randomGame();
-            }
+            console.log(data);
+            setgames(data);
+            // setGame(games[1]);
         }
         fetchgames();
-        console.log(game);
-
     }, [setgames])
 
-    const randomGame = () => {
-        let gam = games[Math.floor(Math.random() * games.length)];
-        console.log(gam);
-        return gam;
-    }
+    // console.log(games[1]);
 
 
     return (
-        <div>Salepage
-            {/* <Timer /> */}
-            {/* <h1>{game.name}</h1> */}
+        <div className='salepage'>
+            <div className="col">
+                <div className="row">
+                    <Timer />
+                </div>
+                {game && 
+                <div className="row">
+                    <h1>{game.name}</h1>
+                    <img src={game.imgurl} alt="" />
+                    <h5>Rs.<s>{game.price}</s></h5>
+                    <h4>10 % off</h4>
+                    <h5>{game.price - (game.price * (10 / 100)).toFixed(1)}</h5>
+                </div>}
+            </div>
         </div>
     )
 }

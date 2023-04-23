@@ -51,11 +51,19 @@ footer {
   .social-icons li:last-child {
     margin-right: 0;
   }
+  .social-icons .row img {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+  }
   
   .social-icons a {
-    display: block;
-    width: 30px;
-    height: 30px;
+    background-color: #636363;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
     color: #686868;
     text-align: center;
   }

@@ -146,6 +146,7 @@ nav button:hover {
     background: #212121;
     z-index: 100;
     transition: .2s;
+    border-bottom-right-radius: 25PX;
   }
   nav ul li{
     margin: 50px 10px;
