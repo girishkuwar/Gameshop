@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import "./Productpage.css"
 import supabase from '../../config/supabaseclient';
 import cartContext from '../../context/CartContext';
+import Loader from '../../components/Loader';
 
 
 const ProductPage = () => {
@@ -39,7 +40,8 @@ const ProductPage = () => {
     }
 
     return (
-        <div className='game-info'>
+         <div className='game-info'>
+            {game.length < 1 ? <Loader/> : <>
             <div className="col">
                 <div className="row">
                     <img src={game.imgurl} alt="" />
@@ -50,7 +52,7 @@ const ProductPage = () => {
                     <p>{game.desc}</p>
                     <button onClick={addtocart}>Add To Cart</button>
                 </div>
-            </div>
+            </div></>}
         </div>
     )
 }
