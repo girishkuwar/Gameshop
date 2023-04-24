@@ -5,6 +5,7 @@ import gamingBg1 from '../../img/gaming1.webp'
 import gamingBg2 from '../../img/gaming2.jpg'
 import gamingBg3 from '../../img/gaming3.jpg'
 import Salepage from '../Salepage/Salepage'
+import YoutubeEmbed from '../../components/YoutubeEmbed'
 
 const Home = () => {
   return (
@@ -31,6 +32,7 @@ const Home = () => {
         </div>
       </Carousel>
       <Salepage/>
+      <YoutubeEmbed embedId="r72GP1PIZa0" />
     </div>
   )
 }

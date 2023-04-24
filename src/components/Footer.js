@@ -29,7 +29,6 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>© 2023 GameShop. All rights reserved.</p>
-        <i className="fas fa-info-circle"></i>
       </div>
     </footer>
   )

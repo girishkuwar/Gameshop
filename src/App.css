@@ -1,17 +1,20 @@
 :root {
   --primary-clr: #850202;
-  --dark:#212121;
-  --dark-h:#393939;
+  --dark: #212121;
+  --dark-h: #393939;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
 body {
   background-color: black;
 }
+
 nav {
   background-color: black;
   padding: 10px 20px;
@@ -19,40 +22,49 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+
 nav i {
   font-size: 1.5rem;
   color: aliceblue;
   margin: 0 5px;
 }
+
 nav .logo {
   color: aliceblue;
   display: flex;
   margin: 0 20px;
   align-items: center;
 }
+
 .logo span {
   color: var(--primary-clr);
 }
+
 nav ul {
   display: flex;
   list-style: none;
   align-items: center;
 }
-ul li a{
+
+ul li a {
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 10px;
   color: aliceblue;
 }
-nav a:hover{
+
+nav a:hover {
   color: var(--primary-clr);
 }
+
 .active {
   color: var(--primary-clr);
 }
+
 .menu {
   display: none;
 }
+
 nav button {
   padding: 5px 20px;
   border: 1px solid var(--primary-clr);
@@ -61,32 +73,50 @@ nav button {
   color: aliceblue;
   text-decoration: none;
 }
+
 nav button:hover {
   border: 1px solid var(--primary-clr);
   background-color: rgb(52, 52, 52);
 }
 
-.cart{
+.cart {
   position: relative;
 }
-  .cart img {
-    position: relative;
-    font-size: 3.2rem;
-  }
-  .cart span {
-    width: 1.4rem;
-    height: 1.4rem;
-    position: absolute;
-    background-color: #000;
-    color: wheat;
-    border-radius: 50%;
-    border: 1px solid var(--primary-clr);
-    display: grid;
-    place-items: center;
-    top: -10%;
-    left: 60%;
-  }
 
+.cart img {
+  position: relative;
+  font-size: 3.2rem;
+}
+
+.cart span {
+  width: 1.4rem;
+  height: 1.4rem;
+  position: absolute;
+  background-color: #000;
+  color: wheat;
+  border-radius: 50%;
+  border: 1px solid var(--primary-clr);
+  display: grid;
+  place-items: center;
+  top: -10%;
+  left: 60%;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  padding: 10px 5%;
+}
 
 
 
@@ -96,19 +126,22 @@ nav button:hover {
   display: flex;
   align-items: center;
 }
+
 .logger h5 {
   margin: 0 25px;
 }
+
 .home-heading {
   position: absolute;
   width: 100%;
   margin-top: 20rem;
 }
+
 .txtbox {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   padding: 25px 50px;
   background-color: rgba(0, 0, 0, 0.457);
   color: aliceblue;
@@ -121,11 +154,12 @@ nav button:hover {
   height: 100vh;
   width: 100%;
 }
+
 .loader img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 720px) {
@@ -133,10 +167,12 @@ nav button:hover {
     padding: 10px 0;
     font-size: .8rem;
   }
+
   nav button {
     font-size: .6rem;
     padding: 5px 10px;
   }
+
   nav ul {
     position: absolute;
     display: block;
@@ -148,36 +184,48 @@ nav button:hover {
     transition: .2s;
     border-bottom-right-radius: 25PX;
   }
-  nav ul li{
+
+  nav ul li {
     margin: 50px 10px;
     opacity: 0;
     display: none;
     transition: .2s;
   }
+
   nav.active ul {
     height: fit-content;
     background: #212121;
   }
+
   nav.active ul li {
     opacity: 1;
     display: block;
-  } 
+  }
+
   .menu {
     display: block;
     position: absolute;
     z-index: 100;
     margin-left: 5px;
   }
+
   .menu .line {
     width: 20px;
     height: 2px;
     background: var(--primary-clr);
     margin: 5px 0;
   }
+
+  .menu .line:last-child,
+  .menu .line:first-child {
+    width: 22px;
+  }
+
   .home-heading {
     margin-top: 7rem;
     font-size: .7rem;
   }
+
   .home-heading .txtbox {
     padding: 10px 15px;
   }
