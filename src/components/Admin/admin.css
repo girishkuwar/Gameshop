@@ -89,24 +89,29 @@ table th {
     align-items: baseline;
     gap: 50px;
 }
-
-.ordertop h1 {
-    font-size: 1rem;
+.orders table {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
-.ordertop h3 {
-    color: antiquewhite;
-    font-size: 0.8rem;
-    color: var(--primary-clr);
+.orders th {
+    font-size: .7rem;
 }
-
-.ordertop select {
+.orders table td {
+    font-size: .7rem;
+}
+.orders select {
     width: 100px;
-    height: 40px;
+    height: 30px;
+    padding: 0 5px;
+    font-size: .7rem;
 }
 
-.ordertop button {
-    padding: 5px 10px;
+.orders button {
+    padding: 5px 7px;
+    font-size: .7rem;
 }
 
 h5 {

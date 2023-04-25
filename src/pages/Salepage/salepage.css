@@ -1,5 +1,6 @@
 .salepage {
     color: aliceblue;
+    margin: 20px 0;
 }
 .salepage .col {
     display: flex;

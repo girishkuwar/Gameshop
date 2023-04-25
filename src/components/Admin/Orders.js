@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import supabase from '../../config/supabaseclient';
+import "./admin.css"
+
 const Orders = () => {
   const [orders, setorders] = useState([]);
   const [status, setStatus] = useState("");
@@ -21,17 +23,17 @@ const Orders = () => {
   }, [])
 
   const updateStatus = async (id) => {
-      const { data , error } = await supabase
+    const { data, error } = await supabase
       .from("orders")
-      .update({status})
-      .eq('id',id)
+      .update({ status })
+      .eq('id', id)
 
-      if (data) {
-        console.log(data);
-      } else {
-        console.log(error);
-      }
-      console.log("Order updated");
+    if (data) {
+      console.log(data);
+    } else {
+      console.log(error);
+    }
+    console.log("Order updated");
   }
 
 
@@ -39,7 +41,36 @@ const Orders = () => {
 
   return (
     <div className='orders'>
-      {
+      <table>
+        <tr>
+          <th>order ID</th>
+          <th>User name</th>
+          <th>Game Name</th>
+          <th>Status</th>
+          <th>Option</th>
+        </tr>
+        {
+          orders.map((o) => {
+            return(<tr>
+              <td>{o.id}</td>
+              <td>{o.user}</td>
+              <td>{o.gamename}</td>
+              <td>
+              <select name="Status" onChange={(e) => setStatus(e.target.value)}>
+                <option value={o.status}>{o.status}</option>
+                <option value="Download">Download</option>
+                <option value="Canceled">Canceled</option>
+                <option value="Pending">Pending</option>
+              </select>
+              </td>
+              <td>
+              <button onClick={() => updateStatus(o.id)}>Change Status</button>
+              </td>
+            </tr>)
+          })
+        }
+      </table>
+      {/* {
         orders.map((o) => {
           return (<>
             <div className="ordertop">
@@ -56,7 +87,7 @@ const Orders = () => {
             </div>
           </>)
         })
-      }
+      } */}
     </div>
   )
 }

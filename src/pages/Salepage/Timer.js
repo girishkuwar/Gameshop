@@ -45,7 +45,7 @@ const Timer = () => {
 
   return (
     <section className='timer'>
-      <div className="">Buy Now</div>
+      <div className="">Limited Time</div>
       <div className="">
         <section>
           <p>{days}</p>
