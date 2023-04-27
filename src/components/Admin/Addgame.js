@@ -9,6 +9,7 @@ const Addgame = () => {
   const [img, setImg] = useState(null);
   const [price, setPrice] = useState("");
   const [Quantity, setQuantity] = useState("");
+  const [category, setCategory] = useState("")
 
   const handleImg = (e) => {
     setImg(e.target.files[0]);
@@ -17,7 +18,7 @@ const Addgame = () => {
   const uploadDetails = async (imgpath) => {
     const { data, error } = await supabase
       .from('games')
-      .insert([{ name, desc, price, Quantity, imgurl:imgpath }])
+      .insert([{ name, desc, price, Quantity, imgurl:imgpath , category }])
 
     if (data) {
       console.log(data);
@@ -52,6 +53,8 @@ const Addgame = () => {
       <textarea name="" id="" cols="30" rows="10" onChange={(e) => setDesc(e.target.value)} value={desc}></textarea>
       <h5>Price</h5>
       <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} />
+      <h5>Category</h5>
+      <input type="text" name="" id="" onChange={(e) => setCategory(e.target.value)} value={category} />
       <h5>Quantity</h5>
       <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} />
       <button onClick={uploadData}>Submit</button>

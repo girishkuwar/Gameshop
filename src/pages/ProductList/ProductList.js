@@ -8,6 +8,8 @@ import Pagination from './Pagination'
 
 const ProductList = () => {
   const [games, setgames] = useState([]);
+  const [query, setQuery] = useState("45");
+  const [category, setcategory] = useState("");
   const [currentpage, setCurrentpage] = useState(1);
   const [recordsperpage, setrecordperpage] = useState(6);
 
@@ -32,6 +34,28 @@ const ProductList = () => {
       .select('*', { count: 'exact' })
   }
 
+  const getCategoryvisegame = async (category) => {
+    
+    if (category.length < 1) {
+      const {data ,error } = await supabase 
+      .from('games')
+      .select()
+      
+      if (data) {
+        setgames(data);
+      }
+    }
+    const { data, error } = await supabase
+    .from('games')
+    .select()
+    .eq('category', category)
+    
+    if (data) {
+      setgames(data);
+    }
+    setCurrentpage(1);
+  }
+
 
   useEffect(() => {
     getCount();
@@ -45,7 +69,26 @@ const ProductList = () => {
 
 
   return (<>
+    <div className="search-bar">
+      <input type="text" placeholder='search game' onChange={(e) => setQuery(e.target.value)} />
+      <ul className='list'>
+        {query.length > 0 &&
+          games.filter((g) => g.name.toLowerCase().includes(query)).map((e, i) => {
+            return (<Link to={"/productpage/" + e.id} className='list-item'> <li>{e.name}</li></Link>)
+          })
+        }
+      </ul>
+    </div>
+    <div className="category-bar">
+      <select name="category" id="" onChange={(e) => getCategoryvisegame(e.target.value)}>
+        <option value="">all</option>
+        <option value="action">action</option>
+        <option value="adventure">adventure</option>
+        <option value="racing">racing</option>
+      </select>
+    </div>
     <div className='game-list'>
+
       {
         currentGames.map((e, i) => {
           return (<div className='card' key={i}><Link to={"/productpage/" + e.id}>

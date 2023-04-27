@@ -16,6 +16,14 @@
     color: aliceblue;
     margin-top: 50px;
 }
+.row h4 {
+    margin: 10px ;
+    color: gainsboro;
+    background-color: rgb(128, 0, 0);
+    width: fit-content;
+    padding: 5px 7px;
+    border-radius: 10px;
+}
 .row p {
     color: gray;
 }
@@ -32,6 +40,50 @@
     font-size: larger;
     color: var(--dark);
 }
+.gameplay {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    gap: 10px;
+}
+.gameplay::-webkit-scrollbar {
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+}
+.gameplay::-webkit-scrollbar-thumb {
+    background-color: rgb(128, 0, 0);
+}
+.gameplay img {
+    width: 400px;
+}
+
+.gameplay-s h2 {
+    border-bottom: 1px solid gray;
+    color: aliceblue;
+    margin-top: 10px;
+}
+
+
+
+
+.req {
+    margin-top: 10px;
+}
+.req h2 , h3{
+    color: aliceblue;
+}
+.req h2 {
+    border-bottom: 1px solid gray;
+}
+.req .col-left {
+    padding: 10px 20px;
+    float: left;
+}
+.req .col-right {
+    padding: 10px 20px;
+}
+
 
 @media screen and (max-width: 720px) {
     .game-info .col {
