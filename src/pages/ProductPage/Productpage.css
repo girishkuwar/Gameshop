@@ -27,6 +27,11 @@
     color: aliceblue;
     border-radius: 10px;
 }
+.price {
+    font-weight: bolder;
+    font-size: larger;
+    color: var(--dark);
+}
 
 @media screen and (max-width: 720px) {
     .game-info .col {

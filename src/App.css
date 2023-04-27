@@ -1,5 +1,5 @@
 :root {
-  --primary-clr: #850202;
+  --primary-clr: #da0000;
   --dark: #212121;
   --dark-h: #393939;
 }
@@ -228,5 +228,8 @@ nav button:hover {
 
   .home-heading .txtbox {
     padding: 10px 15px;
+  }
+  .carousel img {
+    width: 150%;
   }
 }

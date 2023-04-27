@@ -48,7 +48,7 @@ const ProductPage = () => {
                 </div>
                 <div className="row">
                     <h1>{game.name}</h1>
-                    <p><b>RS. {game.price}</b></p>
+                    <p className='price'><b>RS. {game.price}</b></p>
                     <p>{game.desc}</p>
                     <button onClick={addtocart}>Add To Cart</button>
                 </div>

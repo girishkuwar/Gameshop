@@ -14,6 +14,7 @@
 
 .game-list .card:hover {
     background-color: var(--dark-h);
+    box-shadow: rgba(168, 3, 3, 0.338) 0px 10px 50px;
 }
 
 .card h1 {
@@ -41,6 +42,19 @@ h1 {
     color: aliceblue;
 }
 
+.paging {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.paging button {
+    padding: 0 10px;
+    height: 20px;
+}
+a:visited {
+    text-decoration: none;
+}
 @media screen and (max-width: 720px) {
    
 
