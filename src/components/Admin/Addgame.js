@@ -9,31 +9,55 @@ const Addgame = () => {
   const [img, setImg] = useState(null);
   const [price, setPrice] = useState("");
   const [Quantity, setQuantity] = useState("");
-  const [category, setCategory] = useState("")
+  const [category, setCategory] = useState("");
+  const [screnshots, setScreenshots] = useState([]);
 
   const handleImg = (e) => {
     setImg(e.target.files[0]);
   }
 
+  const handleShot = (e) => {
+    setScreenshots(e.target.files);
+  }
+
   const uploadDetails = async (imgpath) => {
     const { data, error } = await supabase
       .from('games')
-      .insert([{ name, desc, price, Quantity, imgurl:imgpath , category }])
+      .insert([{ name, desc, price, Quantity, imgurl: imgpath, category }])
 
     if (data) {
       console.log(data);
     } else {
       console.log(error);
     }
+    uppd();
     alert("game added")
   }
 
+
+  const uppd = () => {
+    for (let i = 0; i < screnshots.length; i++) {
+      uploadSceenshot(i);
+    }
+  }
+  const uploadSceenshot = async (i) => {
+    console.log(screnshots[i])
+    const { data, error } = await supabase
+      .storage
+      .from('gamespics')
+      .upload("public/" + name + "/" + i + ".jpg", screnshots[i])
+    if (data) {
+      console.log(data);
+    } else {
+      console.log(error);
+    }
+  }
 
   const uploadData = async () => {
     const { data, error } = await supabase
       .storage
       .from('gamespics')
-      .upload("public/" + uuidv4(), img)
+      .upload("public/" + name + "/" + name + "-cover.jpg", img)
     if (data) {
       console.log(data.path);
       let imgpath = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path;
@@ -47,6 +71,8 @@ const Addgame = () => {
     <div className='addgame'>
       <h5>Game Cover</h5>
       <input className='file' type="file" src="" alt="" onChange={handleImg} />
+      <h5>Screenshots</h5>
+      <input type="file" className='file' src='' alt='' multiple onChange={handleShot} />
       <h5>Name</h5>
       <input type="text" placeholder='name' onChange={(e) => setName(e.target.value)} value={name} />
       <h5>Description</h5>
@@ -58,6 +84,7 @@ const Addgame = () => {
       <h5>Quantity</h5>
       <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} />
       <button onClick={uploadData}>Submit</button>
+      <button onClick={uppd}>uppd</button>
     </div>
   )
 }

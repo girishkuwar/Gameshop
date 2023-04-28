@@ -14,7 +14,7 @@ const Salepage = () => {
             const { data, error } = await supabase
                 .from("games")
                 .select()
-                .eq('id', 51)
+                .eq('id', 68)
                 .single()
 
             if (data) {

@@ -4,6 +4,7 @@ import "./Productpage.css"
 import supabase from '../../config/supabaseclient';
 import cartContext from '../../context/CartContext';
 import Loader from '../../components/Loader';
+import logo from "../../img/gameshop.png"
 
 
 const ProductPage = () => {
@@ -11,6 +12,7 @@ const ProductPage = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const cartc = useContext(cartContext);
+    const [screenshots, setscreenshots] = useState(0);
 
     useEffect(() => {
         const getGame = async () => {
@@ -23,6 +25,7 @@ const ProductPage = () => {
             if (data) {
                 console.log(data);
                 setgame(data);
+                setscreenshots(data.screenshots);
             } else {
                 console.log(error);
                 navigate("/");
@@ -58,10 +61,13 @@ const ProductPage = () => {
                 <div className="gameplay-s">
                     <h2>GamePlay</h2>
                     <div className="gameplay">
-                        <img src="https://images.pushsquare.com/screenshots/93236/900x.jpg" alt="" />
-                        <img src="https://img2.picle.io/eyJlZGl0cyI6eyJyb3RhdGUiOm51bGwsInJlc2l6ZSI6eyJ3aWR0aCI6MTE3NiwiZml0IjoiY292ZXIifX0sImJ1Y2tldCI6InByb2QuaW1nMi5waWNsZS5pbyIsImtleSI6ImltYWdlc1wveWFQOXZLWnJcLzEyNWQyNDIzLWZlMTQtNGU1Zi1iOWZjLTM1ZWY2ZTU3YTFiMyJ9" alt="" />
-                        <img src="https://images.pushsquare.com/screenshots/93240/900x.jpg" alt="" />
-                        <img src="https://img2.picle.io/eyJlZGl0cyI6eyJyb3RhdGUiOm51bGwsInJlc2l6ZSI6eyJ3aWR0aCI6MTE3NiwiZml0IjoiY292ZXIifX0sImJ1Y2tldCI6InByb2QuaW1nMi5waWNsZS5pbyIsImtleSI6ImltYWdlc1wvZzU3emF4MWFcLzllM2E5ZmViLTAxZjAtNDdiOC05NDFhLWQ0MmY5ZjM5M2YwOSJ9" alt="" />
+                        <img src={logo} alt="" />
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/0.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/1.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/2.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/3.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/4.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/5.jpg`} alt="" /> 
                     </div>
                 </div>
 
