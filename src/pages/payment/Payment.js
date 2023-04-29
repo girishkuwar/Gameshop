@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
     const [error, setError] = useState(null);
+    const [cardNo, setCardNo] = useState(0);
     const cartc = useContext(cartContext);
     const user = localStorage.getItem("user");
     const userid = localStorage.getItem("userid");
@@ -22,18 +23,31 @@ const Payment = () => {
         for (let i = 0; i < gameslist.length; i++) {
             addData(gameslist[i].id, gameslist[i].name);
         }
-        if(!error){
+        if (!error) {
             cartc.EmptyCart();
             navigate("/");
         }
 
     }
 
+    const cheackCard = () => {
+        // var regEx = /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/;
+        if (cardNo.length === 16) {
+            // return true;
+            buyItems();
+        }
+        else {
+            alert("Please enter a valid credit card number.");
+            // return false;
+        }
+    }
+
+
 
     const addData = async (id, name) => {
         const { data, error } = await supabase
             .from('orders')
-            .insert([{ user, userid, gameid: id, gamename: name, status: "Pending"}])
+            .insert([{ user, userid, gameid: id, gamename: name, status: "Pending" }])
         if (error) {
             setError(error);
             console.log(error);
@@ -49,10 +63,10 @@ const Payment = () => {
                 <h5>Total :Rs {total}</h5>
             </div>
             <div className="container">
-                <form action="" onSubmit={buyItems}>
+                <form action="" onSubmit={cheackCard}>
                     <div className="inputbox">
                         <span>Card number</span>
-                        <input type="text" maxLength={16} className='card-number-input'/>
+                        <input type="number" maxLength={16} className='card-number-input' onChange={(e) => setCardNo(e.target.value)} />
                     </div>
                     <div className="inputbox">
                         <span>Card holder</span>
@@ -81,22 +95,22 @@ const Payment = () => {
                             <span>expiry yy </span>
                             <select name="" id="" className='year-input'>
                                 <option value="year" selected disabled>year</option>
-                                <option value="2023">2023</option> 
-                                <option value="2024">2024</option> 
-                                <option value="2025">2025</option> 
-                                <option value="2026">2026</option> 
-                                <option value="2027">2027</option> 
-                                <option value="2028">2028</option> 
-                                <option value="2029">2029</option> 
-                                <option value="2030">2030</option> 
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
                             </select>
                         </div>
                         <div className="inputbox">
                             <span>cvv</span>
-                            <input type="text" maxLength={3} className='cvv-input'/>
+                            <input type="text" maxLength={3} className='cvv-input' />
                         </div>
                     </div>
-                    <input type="submit"  value='submit' className='submit-btn'/>
+                    <input type="submit" value='submit' className='submit-btn' />
                 </form>
             </div>
         </div>

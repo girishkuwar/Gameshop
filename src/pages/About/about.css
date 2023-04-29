@@ -2,10 +2,69 @@
     font-size: 4rem;
     color: aliceblue;
 }
+
 .about ul {
     list-style: none;
     margin: 100px;
 }
+
 .about li {
     text-align: center;
+}
+
+
+
+.about .info {
+    color: aliceblue;
+    text-align: center;
+    margin: 300px 5px;
+    font-size: 2rem;
+}
+
+.about .logo-r {
+    width: 400px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.about .logo-r path {
+    /* fill: #215460; */
+    stroke-width: 1;
+    stroke: #61DBFB;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    animation: animate-svg 10s linear infinite;
+}
+
+.about .logo-r circle {
+    fill: #215460;
+    /* animation: animate-svg 10s linear forwards; */
+}
+
+
+
+@keyframes animate-svg {
+    0% {
+        stroke-dashoffset: 0;
+        fill: #307789;
+    }
+
+    20% {
+        stroke-dashoffset: 2000;
+    }
+
+    40% {
+        stroke-dashoffset: 3000;
+        fill: #2f7c8d;
+    }
+
+    60% {
+        stroke-dashoffset: 4000;
+    }
+
+    100% {
+        stroke-dashoffset: 6000;
+        fill: #266475;
+    }
 }
