@@ -5,6 +5,7 @@ import supabase from '../../config/supabaseclient';
 import cartContext from '../../context/CartContext';
 import Loader from '../../components/Loader';
 import logo from "../../img/gameshop.png"
+import windowlogo from "../../img/windows-platform-logo-svg.svg"
 
 
 const ProductPage = () => {
@@ -54,7 +55,9 @@ const ProductPage = () => {
                         <p className='price'><b>RS. {game.price}</b></p>
                         <p>{game.desc}</p>
                         <h4>{game.category}</h4>
+                        <div className="flexbox">
                         <button onClick={addtocart}>Add To Cart</button>
+                        <img className='window-logo' src={windowlogo} alt="" /></div>
                     </div>
                 </div>
 

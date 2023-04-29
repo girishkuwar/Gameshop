@@ -85,6 +85,7 @@ const ProductList = () => {
         <option value="action">action</option>
         <option value="adventure">adventure</option>
         <option value="racing">racing</option>
+        <option value="survival">survival</option>
       </select>
     </div>
     <div className='game-list'>
