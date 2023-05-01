@@ -9,7 +9,7 @@ import YoutubeEmbed from '../../components/YoutubeEmbed'
 
 const Home = () => {
   return (
-    <div>
+    <div className='home-main'>
       <div className="home-heading">
         <div className="txtbox">
           <h1>GameShop</h1>

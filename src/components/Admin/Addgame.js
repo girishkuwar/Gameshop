@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import supabase from '../../config/supabaseclient';
 import { v4 as uuidv4 } from 'uuid';
+import Loader from '../Loader';
 
 
 const Addgame = () => {
@@ -11,6 +12,8 @@ const Addgame = () => {
   const [Quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
   const [screnshots, setScreenshots] = useState([]);
+  const [gameid, setGameid] = useState(0);
+  const [loader, setLoader] = useState(false);
 
   const handleImg = (e) => {
     setImg(e.target.files[0]);
@@ -24,13 +27,16 @@ const Addgame = () => {
     const { data, error } = await supabase
       .from('games')
       .insert([{ name, desc, price, Quantity, imgurl: imgpath, category }])
+      .select()
 
     if (data) {
-      console.log(data);
+      console.log(data[0].id);
+      setGameid(data[0].id);
     } else {
       console.log(error);
     }
     uppd();
+    setLoader(false);
     alert("game added")
   }
 
@@ -40,6 +46,7 @@ const Addgame = () => {
       uploadSceenshot(i);
     }
   }
+
   const uploadSceenshot = async (i) => {
     console.log(screnshots[i])
     const { data, error } = await supabase
@@ -51,9 +58,11 @@ const Addgame = () => {
     } else {
       console.log(error);
     }
+    
   }
 
   const uploadData = async () => {
+    setLoader(true);
     const { data, error } = await supabase
       .storage
       .from('gamespics')
@@ -84,7 +93,7 @@ const Addgame = () => {
       <h5>Quantity</h5>
       <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} />
       <button onClick={uploadData}>Submit</button>
-      <button onClick={uppd}>uppd</button>
+      {(loader) && <div className="loader-m"><Loader /></div>}
     </div>
   )
 }

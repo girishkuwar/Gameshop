@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import supabase from '../../config/supabaseclient'
 import Loader from '../../components/Loader'
 import Pagination from './Pagination'
+import Notification from '../../components/Notification'
 
 
 const ProductList = () => {
@@ -12,6 +13,7 @@ const ProductList = () => {
   const [category, setcategory] = useState("");
   const [currentpage, setCurrentpage] = useState(1);
   const [recordsperpage, setrecordperpage] = useState(6);
+  const [msg, setMsg] = useState('');
 
 
   const fetchgames = async () => {
@@ -21,6 +23,7 @@ const ProductList = () => {
 
     if (error) {
       console.log(error)
+      setMsg("Error")
     }
     if (data) {
       console.log(data);
@@ -35,21 +38,15 @@ const ProductList = () => {
   }
 
   const getCategoryvisegame = async (category) => {
-    
+
     if (category.length < 1) {
-      const {data ,error } = await supabase 
-      .from('games')
-      .select()
-      
-      if (data) {
-        setgames(data);
-      }
+      window.location.reload();
     }
     const { data, error } = await supabase
-    .from('games')
-    .select()
-    .eq('category', category)
-    
+      .from('games')
+      .select()
+      .eq('category', category)
+
     if (data) {
       setgames(data);
     }
@@ -69,11 +66,12 @@ const ProductList = () => {
 
 
   return (<>
+      <Notification msg={msg}/>
     <div className="search-bar">
-      <input type="text" placeholder='search game' onChange={(e) => setQuery(e.target.value)} />
+          <input type="text" placeholder='search game' onChange={(e) => setQuery(e.target.value)} />
       <ul className='list'>
         {query.length > 0 &&
-          games.filter((g) => g.name.toLowerCase().includes(query)).map((e, i) => {
+          games.filter((g) => g.name.toLowerCase().includes(query) || g.name.toUpperCase().includes(query) || g.name.includes(query) ).map((e, i) => {
             return (<Link to={"/productpage/" + e.id} className='list-item'> <li>{e.name}</li></Link>)
           })
         }

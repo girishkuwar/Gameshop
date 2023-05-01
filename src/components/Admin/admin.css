@@ -3,6 +3,14 @@
     flex-direction: column;
     text-align: center;
 }
+.loader-m {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.37);
+    width: 100%;
+}
 
 .heading h1 {
     color: aliceblue;
@@ -91,7 +99,7 @@ table th {
 }
 .orders table {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%,-50%);
 }

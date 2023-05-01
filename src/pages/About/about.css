@@ -11,7 +11,29 @@
 .about li {
     text-align: center;
 }
+.backgimg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
 
+.forefront-element {
+    -webkit-transform: translateZ(999px) scale(.7);
+    transform: translateZ(999px) scale(.7);
+    z-index: 1;
+}
+
+.base-element {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+}
+
+.background-element {
+    -webkit-transform: translateZ(-999px) scale(2);
+    transform: translateZ(-999px) scale(2);
+    z-index: 3;
+}
 
 
 .about .info {
@@ -42,6 +64,9 @@
     /* animation: animate-svg 10s linear forwards; */
 }
 
+.clips {
+    stroke: white;
+}
 
 
 @keyframes animate-svg {

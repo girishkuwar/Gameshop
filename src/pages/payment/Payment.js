@@ -31,14 +31,11 @@ const Payment = () => {
     }
 
     const cheackCard = () => {
-        // var regEx = /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/;
         if (cardNo.length === 16) {
-            // return true;
             buyItems();
         }
         else {
             alert("Please enter a valid credit card number.");
-            // return false;
         }
     }
 
@@ -47,7 +44,7 @@ const Payment = () => {
     const addData = async (id, name) => {
         const { data, error } = await supabase
             .from('orders')
-            .insert([{ user, userid, gameid: id, gamename: name, status: "Pending" }])
+            .insert([{ user, userid, gameid: id, gamename: name, status: "Download" }])
         if (error) {
             setError(error);
             console.log(error);

@@ -58,7 +58,7 @@
 }
 .gameplay::-webkit-scrollbar {
     height: 5px;
-    background-color: rgb(0, 0, 0);
+    background-color:  transparent;
 }
 .gameplay::-webkit-scrollbar-thumb {
     background-color: rgb(128, 0, 0);

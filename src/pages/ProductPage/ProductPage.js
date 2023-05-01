@@ -6,10 +6,12 @@ import cartContext from '../../context/CartContext';
 import Loader from '../../components/Loader';
 import logo from "../../img/gameshop.png"
 import windowlogo from "../../img/windows-platform-logo-svg.svg"
+import Notification from '../../components/Notification';
 
 
 const ProductPage = () => {
     let [game, setgame] = useState([]);
+    const [msg, setMsg] = useState("")
     const navigate = useNavigate();
     const { id } = useParams();
     const cartc = useContext(cartContext);
@@ -39,12 +41,14 @@ const ProductPage = () => {
         var oldItems = JSON.parse(localStorage.getItem('cart')) || [];
         oldItems.push(game);
         localStorage.setItem('cart', JSON.stringify(oldItems));
-        alert("Added Item To Cart");
+        setMsg("Added Item To Cart");
+        // alert("Added Item To Cart");
         cartc.update();
     }
 
     return (
         <div className='game-info'>
+            <Notification msg={msg}/>
             {game.length < 1 ? <Loader /> : <>
                 <div className="col">
                     <div className="row">

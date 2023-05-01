@@ -1,0 +1,28 @@
+.toast {
+    background-color: #ffffffdb;
+    color: black;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+    position: fixed;
+    padding: 10px 15px;
+    /* top: 55px; */
+    bottom: 15px;
+    right: 15px;
+    z-index: 15;
+    border-bottom: 1px solid red;
+    transition: .2s;
+}
+.toast i {
+    font-size: 1rem;
+}
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast .toast-content .message {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 25px;
+}
