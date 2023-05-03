@@ -188,13 +188,15 @@ nav button:hover {
     z-index: 100;
     transition: .2s;
     border-bottom-right-radius: 25PX;
+    box-shadow: rgba(168, 3, 3, 0.338) 0px 10px 50px;
+    transition: 1s;
   }
 
   nav ul li {
     margin: 50px 10px;
     opacity: 0;
     display: none;
-    transition: .2s;
+    transition: 1s;
   }
 
   nav.active ul {

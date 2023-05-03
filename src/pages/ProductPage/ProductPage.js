@@ -69,6 +69,12 @@ const ProductPage = () => {
                     <h2>GamePlay</h2>
                     <div className="gameplay">
                         <img src={logo} alt="" />
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/0.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/1.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/2.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/3.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/4.jpg`} alt="" /> 
+                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/5.jpg`} alt="" /> 
                         <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/0.jpg`} alt="" /> 
                         <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/1.jpg`} alt="" /> 
                         <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/2.jpg`} alt="" /> 

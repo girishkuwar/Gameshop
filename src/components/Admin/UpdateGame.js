@@ -47,7 +47,7 @@ const UpdateGame = () => {
     console.log("Update Details with " + newcoverpath);
     const { data, error } = await supabase
       .from("games")
-      .update({ name, desc, price, Quantity, imgurl: newcoverpath ,category })
+      .update({ name, desc, price, Quantity, imgurl: newcoverpath, category })
       .eq('id', id)
 
     if (data) {
@@ -90,14 +90,34 @@ const UpdateGame = () => {
     }
   }
 
+  const replaceCover = async () => {
+    const { data, error } = await supabase
+      .storage
+      .from('gamespics')
+      .update("public/" + id + "/cover.jpg", img, {
+        cacheControl: '3600',
+        upsert: true
+      })
+    if (data) {
+      console.log(data.path);
+      setimgpath("https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path);
+      let newcoverpath = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path;
+      console.log("Cover Updated")
+      updateDetails(newcoverpath);
+    } else {
+      console.log(error);
+    }
+
+  }
+
+
   const uploadDatatest = async () => {
     if (!img) {
       console.log("No new Cover");
       updateDetails();
     } else {
       console.log("Changing Cover");
-      deleteCover();
-      uploadData();
+      replaceCover();
     }
   }
 

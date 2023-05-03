@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Loader from '../../components/Loader'
 import "./about.css"
 import bg from "../../img/High_resolution_wallpaper_background_ID_77700342881.jpg"
+import img1 from "../../img/joy.png"
+import img2 from "../../img/re-banner.png"
 
 const About = () => {
   const [opacity, setopacity] = useState(0)
@@ -22,6 +24,8 @@ const About = () => {
       <img className='backgimg' style={{ transition: "5s", opacity: opacity }} src={bg} alt="" />
        {(loader) && <Loader /> } 
       <div className="info forefront-element">
+        <img className='text-img' src={img1} alt="" />
+        <img className='text-img2' src={img2} alt="" />
         <h1>GIRISH <span> KUWAR</span></h1>
         <h1><span>M.sc.</span> Comp. Sci.</h1>
       </div>

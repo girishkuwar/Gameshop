@@ -19,6 +19,8 @@ import Cartstate from './context/CartState';
 import Payment from './pages/payment/Payment';
 import UserOrders from './pages/orders/UserOrders';
 import Notfound from './pages/404/Notfound';
+import Uploader from './components/Admin/Uploader';
+import Category from './pages/Category/Category';
 
 function App() {
   return (
@@ -37,11 +39,13 @@ function App() {
             <Route path='/userorders' element={<UserOrders/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/payment' element={<Payment/>}/>
+            <Route path='/category' element={<Category/>}/>
             <Route path='*' element={<Notfound/>}/> 
           </Route>
           <Route path='/admin' element={<Admin/>}>
             <Route index element={<Addgame/>}/>
             <Route path='addgame' element={<Addgame/>}/>
+            <Route path='addgame/uploader/:id' element={<Uploader/>}/>
             <Route path='gamelist/updategame/:id' element={<UpdateGame/>}/>
             <Route path='gamelist' element={<GameList/>}/>
             <Route path='orders' element={<Orders/>}/>

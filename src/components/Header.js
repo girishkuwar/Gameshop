@@ -24,12 +24,12 @@ const Header = () => {
     }
   }
   var pageScrollpos = window.scrollY;
-  window.onscroll = function() {
+  window.onscroll = function () {
     var currentScrollPos = window.scrollY;
-    if(pageScrollpos < currentScrollPos) {
-      if(isActive){
-      setActive(!isActive);
-    }
+    if (pageScrollpos < currentScrollPos) {
+      if (isActive) {
+        setActive(!isActive);
+      }
     }
   }
 

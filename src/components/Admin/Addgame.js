@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import supabase from '../../config/supabaseclient';
-import { v4 as uuidv4 } from 'uuid';
 import Loader from '../Loader';
+import Notification from '../Notification';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Addgame = () => {
@@ -12,8 +13,11 @@ const Addgame = () => {
   const [Quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
   const [screnshots, setScreenshots] = useState([]);
-  const [gameid, setGameid] = useState(0);
+  const [game, setGame] = useState([]);
   const [loader, setLoader] = useState(false);
+  const [notify, setnotify] = useState('');
+  const [id, setId] = useState(0);
+  const navigate = useNavigate();
 
   const handleImg = (e) => {
     setImg(e.target.files[0]);
@@ -23,21 +27,23 @@ const Addgame = () => {
     setScreenshots(e.target.files);
   }
 
-  const uploadDetails = async (imgpath) => {
+  const uploadDetails = async () => {
+    setLoader(true);
+
     const { data, error } = await supabase
       .from('games')
-      .insert([{ name, desc, price, Quantity, imgurl: imgpath, category }])
+      .insert([{ name, desc, price, Quantity, category }])
       .select()
 
     if (data) {
-      console.log(data[0].id);
-      setGameid(data[0].id);
+      navigate("/admin/addgame/uploader/" + data[0].id);
+      setnotify("Game Details Uploaded ");
+
     } else {
       console.log(error);
+      alert("Error");
+      setLoader(false);
     }
-    uppd();
-    setLoader(false);
-    alert("game added")
   }
 
 
@@ -52,36 +58,49 @@ const Addgame = () => {
     const { data, error } = await supabase
       .storage
       .from('gamespics')
-      .upload("public/" + name + "/" + i + ".jpg", screnshots[i])
+      .upload("public/" + game.id + "/" + i + ".jpg", screnshots[i])
     if (data) {
       console.log(data);
     } else {
       console.log(error);
     }
-    
+
   }
 
   const uploadData = async () => {
-    setLoader(true);
     const { data, error } = await supabase
       .storage
       .from('gamespics')
-      .upload("public/" + name + "/" + name + "-cover.jpg", img)
+      .upload("public/" + game.id + "/cover.jpg", img)
     if (data) {
-      console.log(data.path);
+      // console.log(data.path);
       let imgpath = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path;
-      uploadDetails(imgpath);
+      updateCoverDetails(imgpath);
     } else {
       console.log(error);
     }
+
   }
+
+  const updateCoverDetails = async (imgpath) => {
+    const { data, error } = await supabase
+      .from("games")
+      .update({ imgurl: imgpath })
+      .eq('id', game.id)
+
+    if (data) {
+      console.log(data);
+    } else {
+      console.log(error);
+    }
+    setLoader(false);
+  }
+
+
 
   return (
     <div className='addgame'>
-      <h5>Game Cover</h5>
-      <input className='file' type="file" src="" alt="" onChange={handleImg} />
-      <h5>Screenshots</h5>
-      <input type="file" className='file' src='' alt='' multiple onChange={handleShot} />
+      <Notification msg={notify} />
       <h5>Name</h5>
       <input type="text" placeholder='name' onChange={(e) => setName(e.target.value)} value={name} />
       <h5>Description</h5>
@@ -92,7 +111,7 @@ const Addgame = () => {
       <input type="text" name="" id="" onChange={(e) => setCategory(e.target.value)} value={category} />
       <h5>Quantity</h5>
       <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} />
-      <button onClick={uploadData}>Submit</button>
+      <button onClick={uploadDetails}>Next</button>
       {(loader) && <div className="loader-m"><Loader /></div>}
     </div>
   )
