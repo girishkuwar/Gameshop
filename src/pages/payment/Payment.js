@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Payment = () => {
     const [error, setError] = useState(null);
     const [cardNo, setCardNo] = useState(0);
+    const [paymentid, setPaymentid] = useState(0);
     const cartc = useContext(cartContext);
     const user = localStorage.getItem("user");
     const userid = localStorage.getItem("userid");
@@ -19,37 +20,53 @@ const Payment = () => {
         total += gameslist[i].price;
     }
 
-    const buyItems = () => {
-        for (let i = 0; i < gameslist.length; i++) {
-            addData(gameslist[i].id, gameslist[i].name);
-        }
-        if (!error) {
-            cartc.EmptyCart();
-            navigate("/");
-        }
+    const buyItems = (pay_id) => {
 
+        if (pay_id !== 0) {
+            for (let i = 0; i < gameslist.length; i++) {
+                addData(gameslist[i].id, gameslist[i].name, pay_id);
+            }
+        } else {
+            alert("Error");
+        }
     }
 
     const cheackCard = () => {
-        if (cardNo.length === 16) {
-            buyItems();
-        }
-        else {
-            alert("Please enter a valid credit card number.");
+        // if (cardNo.length === 16) {
+        //     buyItems();
+        // }
+        // else {
+        //     alert("Please enter a valid credit card number.");
+        // }
+
+    }
+
+
+    const payBill = async () => {
+        const { data, error } = await supabase
+            .from('payment')
+            .insert([{ total, payment_mode: "Card", quantity: gameslist.length, customer_id: userid }])
+            .select()
+
+        if (data) {
+            buyItems(data[0].id);
+        } else {
+            console.log(error);
         }
     }
 
 
-
-    const addData = async (id, name) => {
+    const addData = async (id, name, pay_id) => {
         const { data, error } = await supabase
             .from('orders')
-            .insert([{ user, userid, gameid: id, gamename: name, status: "Download" }])
+            .insert([{ user, userid, gameid: id, gamename: name, status: "Download", payment_id: pay_id }]);
         if (error) {
             setError(error);
             console.log(error);
         } else {
             console.log("done");
+            cartc.EmptyCart();
+            navigate("/");
         }
         alert("Ready For Play")
     }
@@ -60,7 +77,7 @@ const Payment = () => {
                 <h5>Total :Rs {total}</h5>
             </div>
             <div className="container">
-                <form action="" onSubmit={cheackCard}>
+                <form action="" onSubmit={payBill}>
                     <div className="inputbox">
                         <span>Card number</span>
                         <input type="number" maxLength={16} className='card-number-input' onChange={(e) => setCardNo(e.target.value)} />
@@ -109,6 +126,7 @@ const Payment = () => {
                     </div>
                     <input type="submit" value='submit' className='submit-btn' />
                 </form>
+                <button onClick={payBill}>Ok</button>
             </div>
         </div>
     )
