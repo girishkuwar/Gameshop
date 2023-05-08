@@ -135,10 +135,11 @@ const UpdateGame = () => {
         <textarea name="" id="" cols="30" rows="10" onChange={(e) => setDesc(e.target.value)} value={desc}></textarea>
         <h5>Price</h5>
         <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} />
-        <h5>Category</h5>
+        {/* <h5>Category</h5>
         <input type="text" name="" id="" onChange={(e) => setCategory(e.target.value)} value={category} />
         <h5>Quantity</h5>
-        <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} />
+        <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} /> */}
+        <br/>
         <button onClick={uploadDatatest}>Submit</button>
       </div>
     </div>

@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import './productlist.css'
 import { Link } from 'react-router-dom'
 import supabase from '../../config/supabaseclient'
 import Loader from '../../components/Loader'
 import Pagination from './Pagination'
 import Notification from '../../components/Notification'
+import './productlist.css'
 
 
 const ProductList = () => {
   const [games, setgames] = useState([]);
   const [query, setQuery] = useState("45");
   const [category, setcategory] = useState("");
+  const [catlist, setcatList] = useState([]);
   const [currentpage, setCurrentpage] = useState(1);
-  const [recordsperpage, setrecordperpage] = useState(6);
+  const [recordsperpage, setrecordperpage] = useState(8);
   const [msg, setMsg] = useState('');
 
 
@@ -31,6 +32,21 @@ const ProductList = () => {
     }
   }
 
+  const fetchCate = async () => {
+    const { data, error } = await supabase
+      .from("category")
+      .select()
+
+    if (error) {
+      console.log(error)
+    }
+    if (data) {
+      setcatList(data);
+      console.log(data);
+    }
+  }
+
+
   const getCount = async () => {
     const { error, data, count } = await supabase
       .from('games')
@@ -45,7 +61,7 @@ const ProductList = () => {
     const { data, error } = await supabase
       .from('games')
       .select()
-      .eq('category', category)
+      .eq('cat_id', category)
 
     if (data) {
       setgames(data);
@@ -57,6 +73,12 @@ const ProductList = () => {
   useEffect(() => {
     getCount();
     fetchgames();
+    fetchCate();
+    console.log(window.screen.width);
+    if (window.screen.width >= 1230) {
+      setrecordperpage(10);
+    }
+
   }, [])
 
 
@@ -66,12 +88,12 @@ const ProductList = () => {
 
 
   return (<>
-      <Notification msg={msg}/>
+    <Notification msg={msg} />
     <div className="search-bar">
-          <input type="text" placeholder='search game' onChange={(e) => setQuery(e.target.value)} />
+      <input type="text" placeholder='search game' onChange={(e) => setQuery(e.target.value)} />
       <ul className='list'>
         {query.length > 0 &&
-          games.filter((g) => g.name.toLowerCase().includes(query) || g.name.toUpperCase().includes(query) || g.name.includes(query) ).map((e, i) => {
+          games.filter((g) => g.name.toLowerCase().includes(query) || g.name.toUpperCase().includes(query) || g.name.includes(query)).map((e, i) => {
             return (<Link to={"/productpage/" + e.id} className='list-item'> <li>{e.name}</li></Link>)
           })
         }
@@ -80,21 +102,36 @@ const ProductList = () => {
     <div className="category-bar">
       <select name="category" id="" onChange={(e) => getCategoryvisegame(e.target.value)}>
         <option value="">all</option>
-        <option value="action">action</option>
-        <option value="adventure">adventure</option>
-        <option value="racing">racing</option>
-        <option value="survival">survival</option>
+        {
+          catlist.map((e) => {
+            return (<>
+              <option value={e.id}>{e.title}</option>
+            </>)
+          })
+        }
       </select>
     </div>
     <div className='game-list'>
 
-      {
+      {/* {
         currentGames.map((e, i) => {
           return (<div className='card' key={i}><Link to={"/productpage/" + e.id}>
             <h1>{e.name}</h1>
             <img src={e.imgurl} alt='' />
             <p>{e.desc}</p>
           </Link>
+          </div>)
+        })
+      } */}
+      {
+        currentGames.map((e, i) => {
+          return (<div class="cta" key={i}><Link to={"/productpage/" + e.id}>
+            <img src={e.imgurl} alt="" />
+            <div class="text">
+              <h2>{e.name}</h2>
+              <p>{e.desc}</p>
+            </div>
+            </Link>
           </div>)
         })
       }

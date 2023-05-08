@@ -26,14 +26,14 @@ const Users = () => {
       <div className="tbl">
         <table>
           <tr>
-            {/* <th>Id</th> */}
+            <th>Id</th>
             <th>Name</th>
             <th>Email</th>
           </tr>
           {
             users.map((e) => {
               return (<tr>
-                {/* <td>{e.id}</td> */}
+                <td>{e.id}</td>
                 <td>{e.name}</td>
                 <td>{e.email}</td>
               </tr>)

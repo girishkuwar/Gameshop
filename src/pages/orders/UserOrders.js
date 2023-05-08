@@ -7,10 +7,13 @@ import Loader from '../../components/Loader';
 
 const UserOrders = () => {
     const [orders, setorders] = useState([]);
+    const [msg, setmsg] = useState("Wait");
+    const [loader, setLoader] = useState(false);
     const navigate = useNavigate();
 
 
     useEffect(() => {
+        setLoader(true)
         const userid = localStorage.getItem('userid');
         if (!userid) {
             navigate('/login');
@@ -23,8 +26,13 @@ const UserOrders = () => {
 
             if (data) {
                 setorders(data);
+                if(data.length === 0){
+                    setmsg("No games Added")
+                }
+                setLoader(false);
             } else {
                 console.log(error);
+                setLoader(false);
             }
             console.log("done");
         }
@@ -35,7 +43,7 @@ const UserOrders = () => {
         var element = document.createElement('a');
         let textfile = JSON.stringify(o);
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textfile));
-        element.setAttribute('download', o.gamename+".txt");
+        element.setAttribute('download', o.gamename + ".msi");
 
         element.style.display = 'none';
         document.body.appendChild(element);
@@ -45,16 +53,12 @@ const UserOrders = () => {
         document.body.removeChild(element);
     }
 
-    // Start file download.
-    // download("hello.txt", "This is the content of my file :)");
-
-
     return (
         <>
-            {
+            {/* {
                 (orders.length < 1) ? <Loader /> : <div className='userorders'>
                     {
-                        orders.map((o,i) => {
+                        orders.map((o, i) => {
                             return (<div className='orders-list' key={i}>
                                 <h1>{o.gamename}</h1>
                                 {(o.status === "Download") ? <a onClick={() => downloadFile(o)}>Download</a> : <h5>{o.status}</h5>}
@@ -62,7 +66,25 @@ const UserOrders = () => {
                         })
                     }
                 </div>
+            } */}
+            {
+                (orders.length > 0) && <>  <div className='userorders'>
+                    {
+                        orders.map((o, i) => {
+                            return (<div className='orders-list' key={i}>
+                                <h1>{o.gamename}</h1>
+                                {(o.status === "Download") ? <a onClick={() => downloadFile(o)}>Download</a> : <h5>{o.status}</h5>}
+                            </div>)
+                        })
+                    }
+                </div>
+                </>
             }
+            {
+                (orders.length === 0) && <><h1 className='nothing'>{msg}</h1></>
+            }
+
+            {(loader) && <div className="loader-m"><Loader /></div>}
         </>
 
     )

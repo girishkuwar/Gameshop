@@ -33,10 +33,10 @@ const Salepage = () => {
             <div className="col">
                     <div className="row">
                 {/* <Link to={"/productpage/" + game.id}> */}
-                        <h1>10% Off</h1>
+                        <h1>30% Off</h1>
                         <h5>Buy Now</h5>
                         <img src={game.imgurl} alt="" />
-                        <h2>Rs. <s> {game.price}  </s>  {game.price - (game.price * 10 / 100)}</h2>
+                        <h2>Rs. <s> {game.price + (game.price * 30 / 100)}  </s>  {game.price}</h2>
                 {/* </Link> */}
                     </div>
                 <div className="row">

@@ -1,7 +1,10 @@
 .userorders {
     padding: 100px 10%;
 }
-
+.nothing {
+    padding: 100px 10%;
+    text-align: center;
+}
 
 .orders-list {
     padding: 10px 0;

@@ -1,0 +1,17 @@
+.bill {
+    padding: 20px 10%;
+}
+.bill h1 {
+    text-align: center;
+}
+
+.bill h1 ,h2 {
+    color: aliceblue;
+}
+.bill h3 {
+    margin-top: 30px;
+}
+.mygames {
+    text-align: center;
+    margin: 50px;
+}

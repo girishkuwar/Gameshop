@@ -7,15 +7,20 @@ import Loader from '../../components/Loader';
 import logo from "../../img/gameshop.png"
 import windowlogo from "../../img/windows-platform-logo-svg.svg"
 import Notification from '../../components/Notification';
+import ShotsViewer from '../ScreenshotView/ShotsViewer';
 
 
 const ProductPage = () => {
     let [game, setgame] = useState([]);
+    const [cate, setcate] = useState("")
     const [msg, setMsg] = useState("")
     const navigate = useNavigate();
     const { id } = useParams();
     const cartc = useContext(cartContext);
     const [screenshots, setscreenshots] = useState(0);
+    const [viewer, setviewer] = useState("none")
+    const [shot, setShot] = useState(0);
+    let num = [0, 1, 2, 3, 4, 5];
 
     useEffect(() => {
         const getGame = async () => {
@@ -29,26 +34,51 @@ const ProductPage = () => {
                 console.log(data);
                 setgame(data);
                 setscreenshots(data.screenshots);
+                getCategory(data.cat_id)
             } else {
                 console.log(error);
                 navigate("/");
             }
         }
+        window.scrollTo(0, 0);
         getGame();
     }, [id, navigate])
+
+
+    const getCategory = async (Cat_id) => {
+        const { data, error } = await supabase
+            .from("category")
+            .select()
+            .eq('id', Cat_id)
+            .single()
+
+        if (data) {
+            setcate(data)
+        } else {
+            console.log(error);
+        }
+    }
 
     const addtocart = () => {
         var oldItems = JSON.parse(localStorage.getItem('cart')) || [];
         oldItems.push(game);
         localStorage.setItem('cart', JSON.stringify(oldItems));
+
         setMsg("Added Item To Cart");
-        // alert("Added Item To Cart");
         cartc.update();
+    }
+
+    const viewimage = (id) => {
+        setShot(id);
+        setviewer("block");
+    }
+    const close = () => {
+        setviewer("none")
     }
 
     return (
         <div className='game-info'>
-            <Notification msg={msg}/>
+            <Notification msg={msg} />
             {game.length < 1 ? <Loader /> : <>
                 <div className="col">
                     <div className="row">
@@ -58,10 +88,10 @@ const ProductPage = () => {
                         <h1>{game.name}</h1>
                         <p className='price'><b>RS. {game.price}</b></p>
                         <p>{game.desc}</p>
-                        <h4>{game.category}</h4>
+                        <h4>{cate.title}</h4>
                         <div className="flexbox">
-                        <button onClick={addtocart}>Add To Cart</button>
-                        <img className='window-logo' src={windowlogo} alt="" /></div>
+                            <button onClick={addtocart}>Add To Cart</button>
+                            <img className='window-logo' src={windowlogo} alt="" /></div>
                     </div>
                 </div>
 
@@ -69,20 +99,18 @@ const ProductPage = () => {
                     <h2>GamePlay</h2>
                     <div className="gameplay">
                         <img src={logo} alt="" />
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/0.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/1.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/2.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/3.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/4.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/5.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/0.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/1.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/2.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/3.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/4.jpg`} alt="" /> 
-                        <img src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/5.jpg`} alt="" /> 
+                        {
+                            num.map((e, i) => {
+                                return (<>
+                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/${i}.jpg`} alt="" />
+                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/${i}.jpg`} alt="" />
+                                </>)
+                            })
+                        }
                     </div>
                 </div>
+                <ShotsViewer display={viewer} gamename={game.name} id={shot} />
+                {(viewer === "block") && <button className='shotsbtn' onClick={close}>Close</button>}
 
                 <div className="req">
                     <h2>System Requirment</h2>

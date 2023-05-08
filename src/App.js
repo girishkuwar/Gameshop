@@ -21,6 +21,8 @@ import UserOrders from './pages/orders/UserOrders';
 import Notfound from './pages/404/Notfound';
 import Uploader from './components/Admin/Uploader';
 import Category from './pages/Category/Category';
+import Invoice from './pages/Invoice/Invoice';
+import Bills from './components/Admin/Bills';
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/payment' element={<Payment/>}/>
             <Route path='/category' element={<Category/>}/>
+            <Route path='/invoice/:id' element={<Invoice/>}/>
             <Route path='*' element={<Notfound/>}/> 
           </Route>
           <Route path='/admin' element={<Admin/>}>
@@ -50,6 +53,7 @@ function App() {
             <Route path='gamelist' element={<GameList/>}/>
             <Route path='orders' element={<Orders/>}/>
             <Route path='users' element={<Users/>}/>
+            <Route path='bills' element={<Bills/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -3,7 +3,8 @@ import supabase from '../../config/supabaseclient';
 import Loader from '../Loader';
 import Notification from '../Notification';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useEffect } from 'react';
+import "./admin.css"
 
 const Addgame = () => {
   const [name, setName] = useState("");
@@ -11,13 +12,34 @@ const Addgame = () => {
   const [img, setImg] = useState(null);
   const [price, setPrice] = useState("");
   const [Quantity, setQuantity] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(0);
+  const [catlist, setcatList] = useState([]);
   const [screnshots, setScreenshots] = useState([]);
   const [game, setGame] = useState([]);
   const [loader, setLoader] = useState(false);
   const [notify, setnotify] = useState('');
   const [id, setId] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    
+    const fetchCate = async () => {
+      const { data, error } = await supabase
+        .from("category")
+        .select()
+  
+      if (error) {
+        console.log(error)
+      }
+      if (data) {
+        setcatList(data);
+        console.log(data);
+      }
+    }
+    fetchCate();
+  }, [])
+  
+
 
   const handleImg = (e) => {
     setImg(e.target.files[0]);
@@ -32,7 +54,7 @@ const Addgame = () => {
 
     const { data, error } = await supabase
       .from('games')
-      .insert([{ name, desc, price, Quantity, category }])
+      .insert([{ name, desc, price, Quantity, cat_id:category }])
       .select()
 
     if (data) {
@@ -108,9 +130,18 @@ const Addgame = () => {
       <h5>Price</h5>
       <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} />
       <h5>Category</h5>
-      <input type="text" name="" id="" onChange={(e) => setCategory(e.target.value)} value={category} />
-      <h5>Quantity</h5>
-      <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} />
+      <select name="Category" onChange={(e) => setCategory(e.target.value)}>
+        {
+          catlist.map((e) => {
+            return(<>
+            <option value={e.id}>{e.title}</option>
+            </>)
+          })
+        }
+      </select>
+      {/* <h5>Quantity</h5>
+      <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} /> */}
+      <br/>
       <button onClick={uploadDetails}>Next</button>
       {(loader) && <div className="loader-m"><Loader /></div>}
     </div>

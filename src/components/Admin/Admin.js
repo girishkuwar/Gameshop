@@ -8,7 +8,13 @@ const Admin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  let count = 0;
+  const goHome = () => {
+    count++;
+    if (count > 10) {
+      navigate("/");
+    }
+  }
   const login = async () => {
     const { data, error } = await supabase
       .from("admin")
@@ -40,13 +46,14 @@ const Admin = () => {
   }
   return (
     <div className='heading'>
-      {(user === 1) ? <>  <h1>Game<span>Shop</span></h1>
+      {(user === 1) ? <>  <h1 onClick={goHome} >Game<span>Shop</span></h1>
         <ul>
           <li><a href="/"><NavLink to={"addgame"}>Add Game</NavLink></a></li>
           <li><a href="/"><NavLink to={"gamelist"}>Gamelist</NavLink></a></li>
           <li><a href="/"><NavLink to={"orders"}>Orders</NavLink></a></li>
           <li><a href="/"><NavLink to={"users"}>users</NavLink></a></li>
-          <li><a href="/"><NavLink to={"/"}>Home</NavLink></a></li>
+          <li><a href="/"><NavLink to={"bills"}>Bills</NavLink></a></li>
+          {/* <li><a href="/"><NavLink to={"/"}>Home</NavLink></a></li> */}
         </ul>
         <Outlet />
 

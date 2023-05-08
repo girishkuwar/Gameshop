@@ -3,14 +3,15 @@ import cartContext from '../../context/CartContext';
 import "./payment.css"
 import supabase from '../../config/supabaseclient';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../components/Loader';
 
 const Payment = () => {
     const [error, setError] = useState(null);
     const [cardNo, setCardNo] = useState(0);
-    const [paymentid, setPaymentid] = useState(0);
     const cartc = useContext(cartContext);
     const user = localStorage.getItem("user");
     const userid = localStorage.getItem("userid");
+    const [loader, setloader] = useState(false)
     const navigate = useNavigate();
 
 
@@ -32,13 +33,15 @@ const Payment = () => {
     }
 
     const cheackCard = () => {
-        // if (cardNo.length === 16) {
-        //     buyItems();
-        // }
-        // else {
-        //     alert("Please enter a valid credit card number.");
-        // }
-
+        console.log(cardNo.length);
+        setloader(true);
+        if (cardNo.length === 16) {
+            payBill();
+        }
+        else {
+            alert("Please enter a valid card number.");
+            setloader(false);
+        }
     }
 
 
@@ -66,9 +69,10 @@ const Payment = () => {
         } else {
             console.log("done");
             cartc.EmptyCart();
-            navigate("/");
+            navigate("/invoice/" + pay_id);
+            setloader(false);
         }
-        alert("Ready For Play")
+        // alert("Ready For Play")
     }
     return (
         <div className='payment'>
@@ -77,7 +81,8 @@ const Payment = () => {
                 <h5>Total :Rs {total}</h5>
             </div>
             <div className="container">
-                <form action="" onSubmit={payBill}>
+
+                <div className="p-form">
                     <div className="inputbox">
                         <span>Card number</span>
                         <input type="number" maxLength={16} className='card-number-input' onChange={(e) => setCardNo(e.target.value)} />
@@ -124,10 +129,10 @@ const Payment = () => {
                             <input type="text" maxLength={3} className='cvv-input' />
                         </div>
                     </div>
-                    <input type="submit" value='submit' className='submit-btn' />
-                </form>
-                <button onClick={payBill}>Ok</button>
+                    <button className='submit-btn' onClick={cheackCard}>Pay</button>
+                </div>
             </div>
+            {(loader) && <div className="loader-m"><Loader /></div>}
         </div>
     )
 }

@@ -1,0 +1,1 @@
+one to on relationship in javascript

@@ -28,15 +28,12 @@ const Home = () => {
       <Carousel autoPlay={true} interval={3000} infiniteLoop={true} showArrows={false} showThumbs={false} showStatus={false} showIndicators={false}>
         <div>
           <img src={gamingBg1} alt='' />
-          {/* <p className="legend">Legend 1</p> */}
         </div>
         <div>
           <img src={gamingBg2} alt='' />
-          {/* <p className="legend">Legend 2</p> */}
         </div>
         <div>
           <img src={gamingBg3} alt='' />
-          {/* <p className="legend">Legend 3</p> */}
         </div>
       </Carousel>
       <section className='game-c'>

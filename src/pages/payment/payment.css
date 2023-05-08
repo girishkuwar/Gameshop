@@ -21,36 +21,36 @@
     flex-flow: column;
     padding-bottom: 60px;
 }
-.container form {
+.container .p-form {
     background: rgb(30, 30, 30);
     border-radius: 5px;
     box-shadow: 0 10px 15px rgba(255, 0, 0, 0.1);
     padding: 20px;
     width: 600px;
 }
-.container form .inputbox {
+.container .p-form .inputbox {
     margin-top: 20px;
 }
-.container form .inputbox span {
+.container .p-form .inputbox span {
     display: block;
     color: #999;
     padding-bottom: 5px;
 }
-.container form .inputbox input , select {
+.container .p-form .inputbox input , select {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, .3);
     color: #444;
 }
-.container form .flexbox {
+.container .p-form .flexbox {
     display: flex;
     gap: 15px;
 }
-.container form .flexbox .inputbox {
+.container .p-form .flexbox .inputbox {
     flex: 1 1 150px;
 }
-.container form .submit-btn {
+.container .p-form .submit-btn {
     width: 100%;
     background: linear-gradient(45deg, blueviolet , rgb(255, 20, 20));
     margin-top: 20px;
@@ -60,13 +60,13 @@
     cursor: pointer;
     transition: .2s linear;
 }
-.container form .submit-btn:hover {
+.container .p-form .submit-btn:hover {
     letter-spacing: 2px;
     opacity: .8;
 }
 
 @media screen and (max-width: 720px) {
-   .container form {
+   .container .p-form {
     width: 95%;
     margin-top: 10px;
    }

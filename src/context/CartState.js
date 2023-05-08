@@ -10,6 +10,10 @@ const Cartstate = (props) => {
         localStorage.removeItem("cart");
         setCart([]);
     }
+    const updateOnline = () => {
+        const cartId = localStorage.getItem('cart_id');
+    }
+
     return (
         <cartContext.Provider value={{ cart, update, EmptyCart }}>
             {props.children}

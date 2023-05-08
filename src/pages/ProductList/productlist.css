@@ -1,15 +1,75 @@
 .game-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+    gap: 15px;
     padding: 10px 80px;
     margin-top: 30px;
 }
+/* temp */
+ 
+  
+  .cta {
+    background: #333;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    max-width: 200px;
+  }
+  .cta:hover {
+    background-color: var(--dark-h);
+    box-shadow: rgba(168, 3, 3, 0.338) 0px 10px 50px;
+  }
+  .cta:hover img {
+    top: -3%;
+    width: 110%;
+    height: 110%;
+    filter: brightness(30%);
+  }
+  .cta:hover .text {
+    bottom: 0;
+  }
+  .cta img {
+    bottom: 0;
+    filter: brightness(100%);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+  }
+  .cta .text {
+    bottom: -10%;
+    padding: 15px;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+  }
+  .cta .text h2 {
+    color: #fff;
+    display: inline-block;
+    font-weight: 300;
+    margin-bottom: 5px;
+    position: relative;
+  }
+  .cta .text p {
+    font-weight: 300;
+    color: azure;
+    font-size: .8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
+/* temp */
 .game-list .card {
+    max-width: 200px;
     background-color: var(--dark);
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 5px;
     text-align: center;
 }
 
@@ -26,18 +86,17 @@
 
 .card p {
     color: azure;
+    font-size: .8rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    /* max-width: 100px; */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* height: 56px; */
 
 }
 
 .card img {
-    width: 85%;
+    width: 95%;
 }
 h1 {
     color: aliceblue;

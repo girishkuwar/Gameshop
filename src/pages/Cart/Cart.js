@@ -9,11 +9,18 @@ const Cart = () => {
     const navigate = useNavigate();
     useEffect(() => {
         const auth = localStorage.getItem('user');
+        const cartid = localStorage.getItem('cart_id');
+        const cart = localStorage.getItem('cart');
         if (!auth) {
             navigate('/login');
         }
+        if (!cart) {
+            alert("Cart IS Empty");
+            navigate('/productlist');
+        }
         setgames(JSON.parse(localStorage.getItem('cart')));
     }, [navigate])
+
     let total = 0;
     for (let i = 0; i < games.length; i++) {
         total += games[i].price;
@@ -29,6 +36,7 @@ const Cart = () => {
         setgames(JSON.parse(localStorage.getItem('cart')));
         cartc.update();
     }
+    
     return (<>
         <div className='cart-list'>
             {
