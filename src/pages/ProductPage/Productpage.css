@@ -73,10 +73,15 @@
     margin-top: 10px;
 }
 .shotsbtn {
-    position: absolute;
-    margin: 30px;
+    position: fixed;
     bottom: 0;
     left: 0;
+    padding: 0 10px;
+    margin: 30px;
+    height: 20px;
+    background: transparent;
+    color: aliceblue;
+    border: 2px solid aliceblue;
 }
 
 

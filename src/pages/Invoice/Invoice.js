@@ -48,7 +48,6 @@ const Invoice = () => {
 
   useEffect(() => {
     getPayment();
-    alert("Payment Done")
   }, [])
 
 

@@ -8,6 +8,10 @@ import Loader from '../../components/Loader';
 const Payment = () => {
     const [error, setError] = useState(null);
     const [cardNo, setCardNo] = useState(0);
+    const [month, setMonth] = useState(0);
+    const [year, setYear] = useState(0);
+    const [cvv, setCvv] = useState(0);
+    const [holdername, setHoldername] = useState("");
     const cartc = useContext(cartContext);
     const user = localStorage.getItem("user");
     const userid = localStorage.getItem("userid");
@@ -35,7 +39,7 @@ const Payment = () => {
     const cheackCard = () => {
         console.log(cardNo.length);
         setloader(true);
-        if (cardNo.length === 16) {
+        if (cardNo.length === 16 && month !== 0 && year !== 0 && cvv.length === 3 && holdername !== "") {
             payBill();
         }
         else {
@@ -89,12 +93,12 @@ const Payment = () => {
                     </div>
                     <div className="inputbox">
                         <span>Card holder</span>
-                        <input type="text" className='card-holder-input' />
+                        <input type="text" className='card-holder-input' onChange={(e) => setHoldername(e.target.value)}/>
                     </div>
                     <div className="flexbox">
                         <div className="inputbox">
                             <span>expiry mm </span>
-                            <select name="" id="" className='month-input'>
+                            <select name="" id="" className='month-input' onChange={(e) => setMonth(e.target.value)}>
                                 <option value="month" selected disabled>month</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -112,7 +116,7 @@ const Payment = () => {
                         </div>
                         <div className="inputbox">
                             <span>expiry yy </span>
-                            <select name="" id="" className='year-input'>
+                            <select name="" id="" className='year-input' onChange={(e) => setYear(e.target.value)}>
                                 <option value="year" selected disabled>year</option>
                                 <option value="2023">2023</option>
                                 <option value="2024">2024</option>
@@ -126,7 +130,7 @@ const Payment = () => {
                         </div>
                         <div className="inputbox">
                             <span>cvv</span>
-                            <input type="text" maxLength={3} className='cvv-input' />
+                            <input type="text" maxLength={3} className='cvv-input' onChange={(e) => setCvv(e.target.value)}/>
                         </div>
                     </div>
                     <button className='submit-btn' onClick={cheackCard}>Pay</button>

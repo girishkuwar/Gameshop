@@ -47,7 +47,7 @@ const UpdateGame = () => {
     console.log("Update Details with " + newcoverpath);
     const { data, error } = await supabase
       .from("games")
-      .update({ name, desc, price, Quantity, imgurl: newcoverpath, category })
+      .update({ name, desc, price, imgurl: newcoverpath, category })
       .eq('id', id)
 
     if (data) {
@@ -56,6 +56,7 @@ const UpdateGame = () => {
       console.log(error);
     }
     alert("game updated");
+    navigate("/admin/gamelist")
   }
 
   const deleteCover = async () => {

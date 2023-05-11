@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import "./cart.css"
 import { Link, useNavigate } from 'react-router-dom';
 import cartContext from '../../context/CartContext';
+import "./cart.css"
 
 const Cart = () => {
     let [games, setgames] = useState([]);

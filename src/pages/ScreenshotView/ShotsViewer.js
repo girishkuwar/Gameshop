@@ -27,8 +27,10 @@ const ShotsViewer = ({ display, gamename, id}) => {
     return (
         <div className='fullview' style={{ display: display }}>
             <img src={img} alt="" />
-            <button onClick={() => {previos()}} >Prewios</button>
+            <div className="shots-btn">
+            <button onClick={() => {previos()}} >Prew</button>
             <button onClick={() => {next()}}>Next</button>
+            </div>
         </div>
     )
 }

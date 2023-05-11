@@ -1,4 +1,5 @@
 import React from 'react'
+import "./productlist.css"
 
 const Pagination = ({totalPosts, postPerpage ,setCurrentPage , currentpage}) => {
     let pages = [];

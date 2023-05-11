@@ -71,6 +71,7 @@ const ProductPage = () => {
     const viewimage = (id) => {
         setShot(id);
         setviewer("block");
+        // window.scrollTo(0, 0);
     }
     const close = () => {
         setviewer("none")

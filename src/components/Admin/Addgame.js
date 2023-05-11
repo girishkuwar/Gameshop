@@ -22,12 +22,12 @@ const Addgame = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
+
     const fetchCate = async () => {
       const { data, error } = await supabase
         .from("category")
         .select()
-  
+
       if (error) {
         console.log(error)
       }
@@ -38,23 +38,24 @@ const Addgame = () => {
     }
     fetchCate();
   }, [])
-  
 
 
-  const handleImg = (e) => {
-    setImg(e.target.files[0]);
-  }
 
-  const handleShot = (e) => {
-    setScreenshots(e.target.files);
-  }
+  // const handleImg = (e) => {
+  //   setImg(e.target.files[0]);
+  // }
+
+  // const handleShot = (e) => {
+  //   setScreenshots(e.target.files);
+  // }
 
   const uploadDetails = async () => {
     setLoader(true);
+    console.log(category.type)
 
     const { data, error } = await supabase
       .from('games')
-      .insert([{ name, desc, price, Quantity, cat_id:category }])
+      .insert([{ name, desc, price, cat_id: category }])
       .select()
 
     if (data) {
@@ -69,54 +70,54 @@ const Addgame = () => {
   }
 
 
-  const uppd = () => {
-    for (let i = 0; i < screnshots.length; i++) {
-      uploadSceenshot(i);
-    }
-  }
+  // const uppd = () => {
+  //   for (let i = 0; i < screnshots.length; i++) {
+  //     uploadSceenshot(i);
+  //   }
+  // }
 
-  const uploadSceenshot = async (i) => {
-    console.log(screnshots[i])
-    const { data, error } = await supabase
-      .storage
-      .from('gamespics')
-      .upload("public/" + game.id + "/" + i + ".jpg", screnshots[i])
-    if (data) {
-      console.log(data);
-    } else {
-      console.log(error);
-    }
+  // const uploadSceenshot = async (i) => {
+  //   console.log(screnshots[i])
+  //   const { data, error } = await supabase
+  //     .storage
+  //     .from('gamespics')
+  //     .upload("public/" + game.id + "/" + i + ".jpg", screnshots[i])
+  //   if (data) {
+  //     console.log(data);
+  //   } else {
+  //     console.log(error);
+  //   }
 
-  }
+  // }
 
-  const uploadData = async () => {
-    const { data, error } = await supabase
-      .storage
-      .from('gamespics')
-      .upload("public/" + game.id + "/cover.jpg", img)
-    if (data) {
-      // console.log(data.path);
-      let imgpath = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path;
-      updateCoverDetails(imgpath);
-    } else {
-      console.log(error);
-    }
+  // const uploadData = async () => {
+  //   const { data, error } = await supabase
+  //     .storage
+  //     .from('gamespics')
+  //     .upload("public/" + game.id + "/cover.jpg", img)
+  //   if (data) {
+  //     // console.log(data.path);
+  //     let imgpath = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path;
+  //     updateCoverDetails(imgpath);
+  //   } else {
+  //     console.log(error);
+  //   }
 
-  }
+  // }
 
-  const updateCoverDetails = async (imgpath) => {
-    const { data, error } = await supabase
-      .from("games")
-      .update({ imgurl: imgpath })
-      .eq('id', game.id)
+  // const updateCoverDetails = async (imgpath) => {
+  //   const { data, error } = await supabase
+  //     .from("games")
+  //     .update({ imgurl: imgpath })
+  //     .eq('id', game.id)
 
-    if (data) {
-      console.log(data);
-    } else {
-      console.log(error);
-    }
-    setLoader(false);
-  }
+  //   if (data) {
+  //     console.log(data);
+  //   } else {
+  //     console.log(error);
+  //   }
+  //   setLoader(false);
+  // }
 
 
 
@@ -133,15 +134,15 @@ const Addgame = () => {
       <select name="Category" onChange={(e) => setCategory(e.target.value)}>
         {
           catlist.map((e) => {
-            return(<>
-            <option value={e.id}>{e.title}</option>
+            return (<>
+              <option value={e.id}>{e.title}</option>
             </>)
           })
         }
       </select>
       {/* <h5>Quantity</h5>
       <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} /> */}
-      <br/>
+      <br />
       <button onClick={uploadDetails}>Next</button>
       {(loader) && <div className="loader-m"><Loader /></div>}
     </div>
