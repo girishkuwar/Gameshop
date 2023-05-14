@@ -23,6 +23,7 @@ import Uploader from './components/Admin/Uploader';
 import Category from './pages/Category/Category';
 import Invoice from './pages/Invoice/Invoice';
 import Bills from './components/Admin/Bills';
+import Contactus from './components/Admin/Contactus';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
             <Route path='orders' element={<Orders/>}/>
             <Route path='users' element={<Users/>}/>
             <Route path='bills' element={<Bills/>}/>
+            <Route path='contacted' element={<Contactus/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

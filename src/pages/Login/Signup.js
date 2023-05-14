@@ -9,17 +9,18 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const signup = async () => {
+    const signup = async (id) => {
         const { data, error } = await supabase
             .from('users')
-            .insert([{ name, email, password }])
+            .insert([{ name, email, password, user_id: id }])
             .select()
 
         if (data) {
             console.log(data);
-            createCart(data[0].id)
+            createCart(data[0].id);
         } else {
             console.log(error);
+            alert("Error");
         }
         navigate("/login");
     }
@@ -36,9 +37,12 @@ const Signup = () => {
                 }
             }
         )
-        if(data){
+        if (data) {
             console.log(data);
-            signup();
+            signup(data.user.id);
+        }
+        if (error) {
+            alert("Error");
         }
     }
 

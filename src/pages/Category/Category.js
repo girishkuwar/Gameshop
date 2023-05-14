@@ -30,6 +30,7 @@ const Category = () => {
     return (
         <div>
             <div className="banner">
+                <div className="emptyspace"></div>
                 <img src={img} alt="" />
                 <h1>{title}</h1>
             </div>

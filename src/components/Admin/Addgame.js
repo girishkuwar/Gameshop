@@ -12,7 +12,7 @@ const Addgame = () => {
   const [img, setImg] = useState(null);
   const [price, setPrice] = useState("");
   const [Quantity, setQuantity] = useState("");
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState(1);
   const [catlist, setcatList] = useState([]);
   const [screnshots, setScreenshots] = useState([]);
   const [game, setGame] = useState([]);
@@ -140,8 +140,6 @@ const Addgame = () => {
           })
         }
       </select>
-      {/* <h5>Quantity</h5>
-      <input type="number" name="" id="" onChange={(e) => setQuantity(e.target.value)} value={Quantity} /> */}
       <br />
       <button onClick={uploadDetails}>Next</button>
       {(loader) && <div className="loader-m"><Loader /></div>}

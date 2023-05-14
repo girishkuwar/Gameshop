@@ -2,10 +2,15 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, NavLink } from 'react-router-dom'
 import carticon from "../img/colorful-shopping-cart-icon-png(1).png"
 import cartContext from '../context/CartContext'
+import supabase from '../config/supabaseclient';
+import "./header.css"
+
 
 
 const Header = () => {
   const auth = localStorage.getItem('user');
+  const [searchtxt, setSearchtxt] = useState("");
+  const [list, setList] = useState([]);
   const [isActive, setActive] = useState(false)
   const cart = JSON.parse(localStorage.getItem('cart'));
   const cartc = useContext(cartContext);
@@ -42,6 +47,19 @@ const Header = () => {
     setActive(!isActive);
   }
 
+
+  const search = async (txt) => {
+    if (txt !== "") {
+      const { data, error } = await supabase
+        .from('games')
+        .select()
+        .ilike('name', `%${txt}%`)
+
+      if (data) {
+        console.log(data);
+      }
+    }
+  }
   return (
     <div>
       <nav className={isActive ? "active" : null}>
@@ -56,6 +74,12 @@ const Header = () => {
           <li><NavLink to="/userorders">MyGames</NavLink></li>
           <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="/about">About</NavLink></li>
+          {/* <li><form action="" class="search-bar">
+            <input type="search" name="search" pattern=".*\S.*" required  onChange={(e) => { search(e.target.value) }}/>
+              <button class="search-btn" type="submit">
+                <span>Search</span>
+              </button>
+          </form></li> */}
         </ul>
         <div onClick={toggleClass} className="menu">
           <div className="line"></div>

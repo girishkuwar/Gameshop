@@ -83,7 +83,9 @@
     color: aliceblue;
     border: 2px solid aliceblue;
 }
-
+.vdo {
+    width: 50px;
+}
 
 
 .req {

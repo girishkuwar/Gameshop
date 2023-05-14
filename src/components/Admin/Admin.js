@@ -53,6 +53,7 @@ const Admin = () => {
           <li><a href="/"><NavLink to={"orders"}>Orders</NavLink></a></li>
           <li><a href="/"><NavLink to={"users"}>users</NavLink></a></li>
           <li><a href="/"><NavLink to={"bills"}>Bills</NavLink></a></li>
+          <li><a href="/"><NavLink to={"contacted"}>Contacted</NavLink></a></li>
           {/* <li><a href="/"><NavLink to={"/"}>Home</NavLink></a></li> */}
         </ul>
         <Outlet />

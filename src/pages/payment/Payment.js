@@ -4,6 +4,8 @@ import "./payment.css"
 import supabase from '../../config/supabaseclient';
 import { useNavigate } from 'react-router-dom';
 import Loader from '../../components/Loader';
+import visaimg from "../../img/visa.png"
+import masterimg from "../../img/master.png"
 
 const Payment = () => {
     const [error, setError] = useState(null);
@@ -85,7 +87,10 @@ const Payment = () => {
                 <h5>Total :Rs {total}</h5>
             </div>
             <div className="container">
-
+                <div className="card-img">
+                    <img src={masterimg} alt="" />
+                    <img src={visaimg} alt="" />
+                </div>
                 <div className="p-form">
                     <div className="inputbox">
                         <span>Card number</span>

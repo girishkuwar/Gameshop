@@ -148,6 +148,35 @@ h5 {
     margin: 100px;
 }
 
+
+/* Contact us */
+
+.contacts .container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+.contacts .container .card {
+    width: 500px;
+    border: 1px solid gray;
+    height: 300px;
+    text-align: left;
+    padding: 20px 50px;
+}
+.contacts .container .card h1 {
+    font-size: 2rem;
+}
+.contacts .container .card  h3 {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+.contacts .container .card  h5 {
+    font-size: 1.5rem;
+}
+.contacts .container .card p {
+    font-size: .8rem;
+    margin-top: 20px;
+}
 @media screen and (max-width: 720px) {
     .heading ul li a{
         padding: 0 5px;

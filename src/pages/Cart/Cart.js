@@ -54,7 +54,7 @@ const Cart = () => {
             }
             <div className="total">
                 <h1>Total : Rs. {total}</h1>
-                <button><Link to={"/payment"}>Buy</Link></button></div>
+                <Link to={"/payment"}><button>Buy</button></Link></div>
         </div>
     </>
 

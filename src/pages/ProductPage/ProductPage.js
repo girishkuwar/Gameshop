@@ -8,6 +8,7 @@ import logo from "../../img/gameshop.png"
 import windowlogo from "../../img/windows-platform-logo-svg.svg"
 import Notification from '../../components/Notification';
 import ShotsViewer from '../ScreenshotView/ShotsViewer';
+import YoutubeEmbed from '../../components/YoutubeEmbed';
 
 
 const ProductPage = () => {
@@ -34,7 +35,7 @@ const ProductPage = () => {
                 console.log(data);
                 setgame(data);
                 setscreenshots(data.screenshots);
-                getCategory(data.cat_id)
+                getCategory(data.cat_id);
             } else {
                 console.log(error);
                 navigate("/");
@@ -88,7 +89,7 @@ const ProductPage = () => {
                     <div className="row">
                         <h1>{game.name}</h1>
                         <p className='price'><b>RS. {game.price}</b></p>
-                        <p>{game.desc}</p>
+                        <p style={{ whiteSpace: "pre-wrap" }}>{game.desc}</p>
                         <h4>{cate.title}</h4>
                         <div className="flexbox">
                             <button onClick={addtocart}>Add To Cart</button>
@@ -112,6 +113,7 @@ const ProductPage = () => {
                 </div>
                 <ShotsViewer display={viewer} gamename={game.name} id={shot} />
                 {(viewer === "block") && <button className='shotsbtn' onClick={close}>Close</button>}
+                {(game.youtube_id !== null) && <YoutubeEmbed className="vdo" embedId={game.youtube_id} /> }
 
                 <div className="req">
                     <h2>System Requirment</h2>

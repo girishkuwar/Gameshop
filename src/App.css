@@ -95,6 +95,7 @@ nav button:hover {
 .cart img {
   position: relative;
   font-size: 3.2rem;
+  margin: 0 25px;
 }
 
 .cart span {

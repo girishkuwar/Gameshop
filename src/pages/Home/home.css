@@ -81,3 +81,12 @@
 .material-symbols-outlined {
     vertical-align: middle;
 }
+
+
+
+@media screen and (max-width: 720px) {
+    .container-g {
+        flex-direction: column;
+    }
+
+}
