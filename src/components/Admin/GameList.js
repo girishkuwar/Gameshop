@@ -24,17 +24,21 @@ const GameList = () => {
   }
 
   const deleteGame = async (id) => {
-    const { error } = await supabase
-    .from("games")
-    .delete()
-    .eq('id', id)
-    if (error) {
-      console.log(error)
+    if (window.confirm("Are You sure You want to delete product")) {
+      const { error } = await supabase
+        .from("games")
+        .delete()
+        .eq('id', id)
+      if (error) {
+        console.log(error)
+      } else {
+        alert("Deleted");
+        fetchgames();
+      }
     } else {
-      alert("Deleted");
-      fetchgames();
+
     }
-   }  
+  }
 
   return (
     <div className='list'>
@@ -44,7 +48,7 @@ const GameList = () => {
             <img src={g.imgurl} alt="" />
             <h5>{g.name}</h5>
             <h5>Rs. {g.price}</h5>
-            <button><Link to={"updategame/"+g.id}>Update</Link></button>
+            <button><Link to={"updategame/" + g.id}>Update</Link></button>
             <button onClick={() => deleteGame(g.id)}>Delete</button>
           </div>)
         })

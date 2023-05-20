@@ -7,7 +7,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.37);
     width: 100%;
 }
@@ -15,6 +15,9 @@
 .heading h1 {
     color: aliceblue;
     margin-bottom: 25px;
+}
+.heading span a:visited {
+    color: red;
 }
 
 .heading a {
@@ -45,7 +48,7 @@ h1 span {
     width: 100px;
     height: 30px;
     padding: 0 5px;
-    font-size: .7rem;
+    font-size: 0.7rem;
     margin: 5px;
 }
 .addgame button {
@@ -119,25 +122,25 @@ table th {
     position: absolute;
     top: 60%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
 .orders th {
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 .orders table td {
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 .orders select {
     width: 100px;
     height: 30px;
     padding: 0 5px;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 .orders button {
     padding: 5px 7px;
-    font-size: .7rem;
+    font-size: 0.7rem;
 }
 
 h5 {
@@ -147,7 +150,6 @@ h5 {
 .bills h1 {
     margin: 100px;
 }
-
 
 /* Contact us */
 
@@ -166,24 +168,74 @@ h5 {
 .contacts .container .card h1 {
     font-size: 2rem;
 }
-.contacts .container .card  h3 {
+.contacts .container .card h3 {
     font-size: 1rem;
     margin: 10px 0;
 }
-.contacts .container .card  h5 {
+.contacts .container .card h5 {
     font-size: 1.5rem;
 }
 .contacts .container .card p {
-    font-size: .8rem;
+    font-size: 0.8rem;
     margin-top: 20px;
 }
+
+/* DashBoard */
+
+.dashboard-menu {
+    display: flex;
+    padding: 5px 7%;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+.dashboard-menu .d-card {
+    width: 200px;
+    display: flex;
+    height: 200px;
+    background-color: rgb(53, 53, 53);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(157, 5, 5, 0.22);
+}
+.dashboard-menu .d-card i {
+    font-size: 5rem;
+    margin: 25px 10px;
+    color: rgb(112, 0, 0);
+}
+.dashboard-menu .d-card img {
+    width: 100px;
+}
+
+.glow {
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #e60000, 0 0 4px #e60000, 0 0 5px #e60000,
+            0 0 60px #e60000, 0 0 70px #e60000;
+    }
+
+    to {
+        text-shadow: 0 0 2px #fff, 0 0 3px #ff4da6, 0 0 4px #e60000, 0 0 5px #e60000, 0 0 6px #e60000,
+            0 0 70px #e60000, 0 0 80px #e60000;
+    }
+}
 @media screen and (max-width: 720px) {
-    .heading ul li a{
+    .heading ul li a {
         padding: 0 5px;
     }
     .list {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        padding: 0 10px; 
+        padding: 0 10px;
         gap: 5px;
     }
     .ordertop {

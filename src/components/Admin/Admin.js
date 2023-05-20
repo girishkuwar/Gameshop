@@ -46,12 +46,12 @@ const Admin = () => {
   }
   return (
     <div className='heading'>
-      {(user === 1) ? <>  <h1 onClick={goHome} >Game<span>Shop</span></h1>
+      {(user === 1) ? <>  <h1 onClick={goHome} >Game<span><Link to={"/admin"} >Shop</Link> </span></h1>
         <ul>
           <li><a href="/"><NavLink to={"addgame"}>Add Game</NavLink></a></li>
           <li><a href="/"><NavLink to={"gamelist"}>Gamelist</NavLink></a></li>
           <li><a href="/"><NavLink to={"orders"}>Orders</NavLink></a></li>
-          <li><a href="/"><NavLink to={"users"}>users</NavLink></a></li>
+          <li><a href="/"><NavLink to={"users"}>Customers</NavLink></a></li>
           <li><a href="/"><NavLink to={"bills"}>Bills</NavLink></a></li>
           <li><a href="/"><NavLink to={"contacted"}>Contacted</NavLink></a></li>
           {/* <li><a href="/"><NavLink to={"/"}>Home</NavLink></a></li> */}

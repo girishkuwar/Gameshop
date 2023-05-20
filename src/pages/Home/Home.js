@@ -25,7 +25,7 @@ const Home = () => {
           <p>Education is important, but video games are importanter.</p>
         </div>
       </div>
-      <Carousel autoPlay={true} interval={3000} infiniteLoop={true} showArrows={false} showThumbs={false} showStatus={false} showIndicators={false}>
+      <Carousel autoPlay={true} stopOnHover={false} interval={3000} infiniteLoop={true} showArrows={false} showThumbs={false} showStatus={false} showIndicators={false}>
         <div>
           <img src={gamingBg1} alt='' />
         </div>

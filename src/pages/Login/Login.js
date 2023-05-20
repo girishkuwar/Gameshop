@@ -29,7 +29,9 @@ const Login = () => {
       console.log(data)
       setLoader(false);
     } else {
+      alert("Invalid Credentials")
       console.log(error);
+      setLoader(false);
     }
     if (data.email === email) {
       localStorage.setItem("user", data.name);

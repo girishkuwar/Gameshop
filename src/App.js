@@ -24,6 +24,7 @@ import Category from './pages/Category/Category';
 import Invoice from './pages/Invoice/Invoice';
 import Bills from './components/Admin/Bills';
 import Contactus from './components/Admin/Contactus';
+import Dashboard from './components/Admin/Dashboard';
 
 function App() {
   return (
@@ -47,7 +48,8 @@ function App() {
             <Route path='*' element={<Notfound/>}/> 
           </Route>
           <Route path='/admin' element={<Admin/>}>
-            <Route index element={<Addgame/>}/>
+            <Route index element={<Dashboard/>}/>
+            <Route path='dashboard' element={<Dashboard/>}/>
             <Route path='addgame' element={<Addgame/>}/>
             <Route path='addgame/uploader/:id' element={<Uploader/>}/>
             <Route path='gamelist/updategame/:id' element={<UpdateGame/>}/>
