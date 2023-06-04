@@ -26,7 +26,7 @@ const UserOrders = () => {
 
             if (data) {
                 setorders(data);
-                if(data.length === 0){
+                if (data.length === 0) {
                     setmsg("No games Added")
                 }
                 setLoader(false);
@@ -40,17 +40,49 @@ const UserOrders = () => {
     }, [navigate])
 
     const downloadFile = (o) => {
-        var element = document.createElement('a');
-        let textfile = JSON.stringify(o);
-        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textfile));
-        element.setAttribute('download', o.gamename + ".msi");
+        const getLink = async () => {
+            const { data, error } = await supabase
+                .from("games")
+                .select('link')
+                .eq('id', o.gameid)
 
-        element.style.display = 'none';
-        document.body.appendChild(element);
+            if (data) {
+                console.log(data);
+                downloadlink(data[0].link);
+            } else {
+                console.log(error);
 
-        element.click();
+            }
+        }
+        getLink();
+        // var element = document.createElement('a');
+        // let textfile = JSON.stringify(o);
+        // element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(textfile));
+        // element.setAttribute('download', o.gamename + ".msi");
+        // element.style.display = 'none';
+        // document.body.appendChild(element);
+        // element.click();
+        // document.body.removeChild(element);
+    }
 
-        document.body.removeChild(element);
+
+    const downloadlink = (l) => {
+        console.log(l);
+        fetch(l).then(res => res.blob()).then(file => {
+            let tempurl = URL.createObjectURL(file);
+            let atag = document.createElement("a");
+            atag.href = tempurl;
+            atag.download = l;
+            
+            document.body.appendChild(atag);
+            
+            atag.click();
+            
+            atag.remove();
+            
+            URL.revokeObjectURL(tempurl);
+            console.log(atag);
+        }).catch("Note", "Cant Download This File");
     }
 
     return (

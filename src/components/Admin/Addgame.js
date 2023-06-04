@@ -11,6 +11,7 @@ const Addgame = () => {
   const [desc, setDesc] = useState("");
   const [img, setImg] = useState(null);
   const [price, setPrice] = useState("");
+  const [link, setlink] = useState("");
   const [Quantity, setQuantity] = useState("");
   const [category, setCategory] = useState(1);
   const [catlist, setcatList] = useState([]);
@@ -55,7 +56,7 @@ const Addgame = () => {
 
     const { data, error } = await supabase
       .from('games')
-      .insert([{ name, desc, price, cat_id: category }])
+      .insert([{ name, desc, price, link, cat_id: category }])
       .select()
 
     if (data) {
@@ -130,6 +131,8 @@ const Addgame = () => {
       <textarea name="" id="" cols="30" rows="10" onChange={(e) => setDesc(e.target.value)} value={desc}></textarea>
       <h5>Price</h5>
       <input type="number" onChange={(e) => setPrice(e.target.value)} value={price} />
+      <h5>link</h5>
+      <input type="text" onChange={(e) => setlink(e.target.value)} value={link} />
       <h5>Category</h5>
       <select name="Category" onChange={(e) => setCategory(e.target.value)}>
         {
