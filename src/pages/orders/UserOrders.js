@@ -90,7 +90,7 @@ const UserOrders = () => {
         } else {
             let atag = document.createElement("a");
             // atag.href = "https://speed.hetzner.de/1GB.bin";
-            atag.href = "https://s1-filecr.xyz/00950b016389d65c?ref=f4730437548765be7321936f028e2313";
+            atag.href = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/games/GameShop-Installer.exe";
             atag.download = "https://speed.hetzner.de/installer.exe";
             document.body.appendChild(atag);
             atag.click();
