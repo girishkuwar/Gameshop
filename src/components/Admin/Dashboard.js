@@ -100,7 +100,7 @@ const Dashboard = () => {
             <div className="dashboard-menu">
                 <div className="d-card">
                     <NavLink to={"orders"}> <i class="fa fa-truck glow"></i> </NavLink>
-                    <h3>Saled  : {totalorders}</h3>
+                    <h3>Sold  : {totalorders}</h3>
                 </div>
                 <div className="d-card">
                     <NavLink to={"contacted"}> <i class="fa fa-address-card glow"></i> </NavLink>

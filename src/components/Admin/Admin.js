@@ -53,7 +53,7 @@ const Admin = () => {
           <li><a href="/"><NavLink to={"orders"}>Orders</NavLink></a></li>
           <li><a href="/"><NavLink to={"users"}>Customers</NavLink></a></li>
           <li><a href="/"><NavLink to={"bills"}>Bills</NavLink></a></li>
-          <li><a href="/"><NavLink to={"contacted"}>Contacted</NavLink></a></li>
+          <li><a href="/"><NavLink to={"contacted"}>Customer quries</NavLink></a></li>
           {/* <li><a href="/"><NavLink to={"/"}>Home</NavLink></a></li> */}
         </ul>
         <Outlet />
