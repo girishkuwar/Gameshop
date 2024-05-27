@@ -75,8 +75,7 @@ const Home = () => {
         </div>
       </section>
       <Salepage />
-      <YoutubeEmbed embedId="9GMERhEqOEbSpPqi" />
-  https://youtu.be/aoPsi7g5xjE?si=
+      <YoutubeEmbed embedId="P7vyLDEwF5I" />
     </div>
   )
 }
