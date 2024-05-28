@@ -21,7 +21,7 @@ const Timer = () => {
   
 
   const startTimer = () => {
-    const countDownDate =  new Date('October 30, 2023 00:00:00').getTime();
+    const countDownDate =  new Date('June 30, 2024 00:00:00').getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
