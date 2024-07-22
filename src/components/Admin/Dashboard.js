@@ -58,7 +58,7 @@ const Dashboard = () => {
             console.log(error)
         }
         if (data) {
-            console.log(data);
+            // console.log(data);
             setPayments(data);
             setTotal(sumArray(data));
         }

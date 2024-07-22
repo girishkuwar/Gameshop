@@ -130,6 +130,11 @@ h1 {
   border: 2px solid aliceblue;
 }
 
+.paging .active-page-btn {
+  background: aliceblue;
+  color: black;
+}
+
 a:visited {
   text-decoration: none;
 }

@@ -42,7 +42,7 @@ const Home = () => {
             <img src={actionimg} alt="" />
             <div class="card-content">
               <h2>Action</h2>
-              <button onClick={() => navigate('/category', { state: { id: 1, img: actionimg, title: "Action" } })}>Show More</button>
+              <button onClick={() => navigate('/category', { state: { id: 1, img: actionimg, title: "Action" } })}>Show Action Games</button>
             </div>
           </div>
           <div class="card">
@@ -51,7 +51,7 @@ const Home = () => {
               <h2>
                 Survival
               </h2>
-              <button onClick={() => navigate('/category', { state: { id: 4, img: servivalimg, title: "Survival" } })}>Show More</button>
+              <button onClick={() => navigate('/category', { state: { id: 4, img: servivalimg, title: "Survival" } })}>Show Survival Games</button>
             </div>
           </div>
           <div class="card">
@@ -60,7 +60,7 @@ const Home = () => {
               <h2>
                 Adventure
               </h2>
-              <button onClick={() => navigate('/category', { state: { id: 2, img: advetureimg, title: "Adventure" } })}>Show More</button>
+              <button onClick={() => navigate('/category', { state: { id: 2, img: advetureimg, title: "Adventure" } })}>Show Adventure Games</button>
             </div>
           </div>
           <div class="card">
@@ -69,7 +69,7 @@ const Home = () => {
               <h2>
                 Racing
               </h2>
-              <button onClick={() => navigate('/category', { state: { id: 3, img: racingimg, title: "Racing" } })}>Show More</button>
+              <button onClick={() => navigate('/category', { state: { id: 3, img: racingimg, title: "Racing" } })}>Show Racing Games</button>
             </div>
           </div>
         </div>

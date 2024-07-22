@@ -21,7 +21,8 @@ const ProductPage = () => {
     const [screenshots, setscreenshots] = useState(0);
     const [viewer, setviewer] = useState("none")
     const [shot, setShot] = useState(0);
-    let num = [0, 1, 2, 3, 4, 5];
+    const [currentImg, setCurrentImg] = useState('');
+    let num = [0, 1, 2, 3, 4];
 
     useEffect(() => {
         const getGame = async () => {
@@ -32,7 +33,7 @@ const ProductPage = () => {
                 .single()
 
             if (data) {
-                console.log(data);
+                // console.log(data);
                 setgame(data);
                 setscreenshots(data.screenshots);
                 getCategory(data.cat_id);
@@ -60,6 +61,7 @@ const ProductPage = () => {
         }
     }
 
+
     const addtocart = () => {
         var oldItems = JSON.parse(localStorage.getItem('cart')) || [];
         oldItems.push(game);
@@ -70,12 +72,13 @@ const ProductPage = () => {
     }
 
     const viewimage = (id) => {
+        console.log('id on click image: ', id);
         setShot(id);
+        console.log('setShot: ', shot);
         setviewer("block");
-        // window.scrollTo(0, 0);
     }
-    const close = () => {
-        setviewer("none")
+    const closer = () => {
+        setviewer("none");
     }
 
     return (
@@ -104,16 +107,15 @@ const ProductPage = () => {
                         {
                             num.map((e, i) => {
                                 return (<>
-                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/${i}.jpg`} alt="" />
-                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/${i}.jpg`} alt="" />
+                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/${i}.jpg`} onError={(e) => { console.log(e.target.remove()) }} />
+                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/${i}.jpg`} onError={(e) => { console.log(e.target.remove()) }} />
                                 </>)
                             })
                         }
                     </div>
                 </div>
-                <ShotsViewer display={viewer} gamename={game.name} id={shot} />
-                {(viewer === "block") && <button className='shotsbtn' onClick={close}>Close</button>}
-                {(game.youtube_id !== null) && <YoutubeEmbed className="vdo" embedId={game.youtube_id} /> }
+                <ShotsViewer display={viewer} gamename={game.name} id={shot} close={closer} gameid={id} />
+                {(game.youtube_id !== null) && <YoutubeEmbed className="vdo" embedId={game.youtube_id} />}
 
                 <div className="req">
                     <h2>System Requirment</h2>

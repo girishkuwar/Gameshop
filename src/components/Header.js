@@ -56,7 +56,7 @@ const Header = () => {
         .ilike('name', `%${txt}%`)
 
       if (data) {
-        console.log(data);
+        // console.log(data);
       }
     }
   }

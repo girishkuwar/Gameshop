@@ -18,7 +18,7 @@ const GameList = () => {
       console.log(error)
     }
     if (data) {
-      console.log(data);
+      // console.log(data);
       setgames(data);
     }
   }
@@ -30,7 +30,7 @@ const GameList = () => {
         .delete()
         .eq('id', id)
       if (error) {
-        console.log(error)
+        // console.log(error)
       } else {
         alert("Deleted");
         fetchgames();

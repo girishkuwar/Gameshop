@@ -55,10 +55,13 @@
 
 .game-c  .card a,.game-c .card button {
     inset: auto auto 40px 30px;
-    color: black;
-    padding: 5px 7px;
-    border-radius: 20px;
+    /* color: black; */
+    padding: 7px 13px;
+    border-radius: 8px;
     text-decoration: none;
+    border: 1px solid #fff9f9;
+    background: transparent;
+    color: white;
 }
 
 .game-c  .card:hover h2 {
