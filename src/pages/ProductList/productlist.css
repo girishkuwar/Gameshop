@@ -123,7 +123,7 @@ h1 {
 }
 
 .paging button {
-  padding: 0 10px;
+  padding: 0px 10px 20px 10px;
   height: 20px;
   background: transparent;
   color: aliceblue;
