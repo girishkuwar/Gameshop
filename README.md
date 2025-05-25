@@ -2,3 +2,6 @@
 
 
 [GameShop](https://gameshop-gk.netlify.app/)
+
+
+Make Changes in Supabase database
