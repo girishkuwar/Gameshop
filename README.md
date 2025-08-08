@@ -3,7 +3,6 @@
 
 [![React](https://img.shields.io/badge/React-%5E18.2.0-blue?logo=react)](https://reactjs.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-Backend-green?logo=supabase)](https://supabase.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Deployment](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)](https://vercel.com/)
 [![Status](https://img.shields.io/badge/Status-In_Progress-orange)]()
 
