@@ -67,6 +67,12 @@ Contributions are welcome! If you'd like to improve the project:
 4. Push to the branch (`git push origin feature-name`)
 5. Create a Pull Request
 
+## Supabase Database Status
+
+The Supabase backend has been inactive for 90+ days and may no longer be available.  
+To use the project fully, a new Supabase setup and data import might be needed.
+
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
