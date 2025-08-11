@@ -67,7 +67,7 @@ const Uploader = () => {
             .upload("public/" + id + "/cover.jpg", img)
         if (data) {
             // console.log(data.path);
-            let imgpath = "https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/" + data.path;
+            let imgpath = "https://kftaoqxgwyzsujayhbca.supabase.co/storage/v1/object/public/gamespics/" + data.path;
             updateCoverDetails(imgpath);
             uppd();
         } else {
