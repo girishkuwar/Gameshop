@@ -107,8 +107,8 @@ const ProductPage = () => {
                         {
                             num.map((e, i) => {
                                 return (<>
-                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/${i}.jpg`} onError={(e) => { console.log(e.target.remove()) }} />
-                                    <img onClick={() => { viewimage(i) }} src={`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/${i}.jpg`} onError={(e) => { console.log(e.target.remove()) }} />
+                                    <img onClick={() => { viewimage(i) }} src={`https://kftaoqxgwyzsujayhbca.supabase.co/storage/v1/object/public/gamespics/public/${game.name}/${i}.jpg`} onError={(e) => { console.log(e.target.remove()) }} />
+                                    <img onClick={() => { viewimage(i) }} src={`https://kftaoqxgwyzsujayhbca.supabase.co/storage/v1/object/public/gamespics/public/${game.id}/${i}.jpg`} onError={(e) => { console.log(e.target.remove()) }} />
                                 </>)
                             })
                         }
