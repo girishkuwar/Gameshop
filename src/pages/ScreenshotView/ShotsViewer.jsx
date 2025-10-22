@@ -44,11 +44,11 @@ const ShotsViewer = ({ display, gamename, id, close ,gameid}) => {
 
     const setDisplayImg = (no,withid) => {
         if(withid){
-            setimg(`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${gameid}/${no}.jpg`);
+            setimg(`https://kftaoqxgwyzsujayhbca.supabase.co/storage/v1/object/public/gamespics/public/${gameid}/${no}.jpg`);
             console.log(withid);
             return;
         } else {
-            setimg(`https://tfnokgublfaoehupzhtc.supabase.co/storage/v1/object/public/gamespics/public/${gamename}/${no}.jpg`);
+            setimg(`https://kftaoqxgwyzsujayhbca.supabase.co/storage/v1/object/public/gamespics/public/${gamename}/${no}.jpg`);
             return;
         }
     }
